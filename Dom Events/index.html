@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom Events</title>
+    <style>
+      .btn-click {
+        cursor: pointer;
+        padding: 10px 16px;
+        background-color: black;
+        color: #ffffff;
+        text-transform: uppercase;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+      }
+      #divId {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Implement a webpage with the following functionality: -->
+    <p style="text-align: center">
+      <button class="btn-click" onclick="message()">Alert Message</button>
+    </p>
+
+    <!-- HTML DOM Document: -->
+    <div id="divId">
+      <p
+        style="text-align: center; color: green; font-size: 20px"
+        class="p-tag"
+      >
+        I'm P tag.
+      </p>
+    </div>
+
+    <!-- 7.JS Common Events: c. When the user moves the mouse over an image, change the image source to another image of your choice. -->
+    <div style="text-align: center">
+      <img
+        style="cursor: pointer"
+        id="imgId"
+        src="./minhajul-islam.png"
+        alt=""
+      />
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

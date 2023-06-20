@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom Manipulate</title>
+    <link rel="stylesheet" href="./style.css" />
+
+    <style>
+      h5 {
+        width: 60%;
+        margin: auto;
+      }
+
+      button {
+        cursor: pointer;
+        padding: 10px 16px;
+        background-color: black;
+        color: #ffffff;
+        text-transform: uppercase;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- 10.DOM Manipulate CSS Class: 
+      a. Create a webpage with a button and a
+      paragraph element. -->
+
+      <h5 class="bg-para">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+        deleniti non ex odio nihil voluptates perferendis optio eum. Sapiente
+        placeat nesciunt aliquid debitis quos recusandae quis dolore? Libero,
+        voluptate rerum.
+      </h5>
+      <div style="text-align: center">
+        <button id="bg-change-btn">Change Background Color</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- 11.Create Element & Append Element:
+      a. Create a webpage with an empty unordered list (<ul>). -->
+      <div>
+        <ul class="ul-items"></ul>
+      </div>
+
+      <!-- 12.DOM Change Attribute Value:
+           a. Create a webpage with an image element (<img>) that has an initial source URL. -->
+      <div style="text-align: center">
+        <h1><img class="img" src="./minhajul-islam.png" alt="" /></h1>
+
+        <button id="change-picture-btn">Change Picture</button>
+      </div>
+
+      <!-- 13.DOM Query Selector:
+      a. Create a webpage with multiple paragraphs containing different classes and IDs. -->
+      <div style="text-align: center" class="paragraphDiv">
+        <p class="para1">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus,
+          dolores.
+        </p>
+        <p class="para2">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus,
+          dolores.
+        </p>
+        <p class="para3">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus,
+          dolores.
+        </p>
+        <p id="para4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus,
+          dolores.
+        </p>
+        <p id="para5">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus,
+          dolores.
+        </p>
+      </div>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
