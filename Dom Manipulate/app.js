@@ -50,4 +50,5 @@ const changeColor = () => {
     para[i].style.color = "red";
   }
 };
+
 changeColor();

@@ -1,3 +1,1 @@
 # Assignment-of-Ostad
-
-hello
