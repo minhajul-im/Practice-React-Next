@@ -3,6 +3,6 @@ import { showDisplay } from "./cart.js";
 import { cartIconClick } from "./cart-icon.js";
 import { btnEvent } from "./add-to-cart.js";
 
-cartIconClick();
 showDisplay(data);
 btnEvent();
+cartIconClick;

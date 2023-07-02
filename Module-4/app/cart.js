@@ -25,12 +25,19 @@ export const showDisplay = (carts) => {
       }..... </p>
 
       <div class="d-flex justify-content-between align-items-baseline">
+
         <button
         type="button"
         class="btn btn-outline-secondary add-to-cart-btn"
-        data-id="${cart?.id}">
+        data-id="${cart?.id}"
+        data-title="${
+          cart?.title ? cart.title.split(" ").slice(0, 3).join() : cart.title
+        }"
+        data-category="${cart?.category}"
+        data-price="${cart?.price}">
           Add to Card
         </button>
+
         <div class="d-flex ">
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
