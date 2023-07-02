@@ -23,24 +23,87 @@
     <script src="./app/app.js" type="module" defer></script>
   </head>
   <body>
-    <header class="bg-secondary mb-4">
+    <header class="bg-secondary">
       <nav
         class="container text-white d-flex justify-content-evenly py-2 align-baseline"
       >
         <h3>Create A Shopping Cart</h3>
         <div class="">
-          <i class="fa-solid fa-cart-shopping cart-icon fs-2"></i>
+        <i id="icon" class="fa-solid fa-cart-shopping cart-icon fs-2"></i>
+          
         </div>
       </nav>
     </header>
     <main class="container">
+      <div class="cart-hidden cart-duration" id="cart-icon">
+        <!-- cash cart section  -->
+        <div  class="d-flex justify-content-between ">
+          <div class="w-75 p-4 ">
+            <div class="text-secondary d-flex justify-content-between">
+              <h3>Product Items</h3>
+              <h3><button class="btn btn-outline-danger">Clear Cash</button></h3>
+            </div>
+  
+            <div class="d-flex justify-content-around align-baseline py-3">
+              <h5>John Hardy Women's</h5>
+              <p class="fst-italic"> men's cloth</p>
+              <h5><span><i class="fa-solid fa-minus curPointer"></i></span> <span>0</span> <span><i class="fa-solid fa-plus curPointer"></i></span> </h5>
+              <h5>$ <span>00.00</span></h5>
+              <p><i class="fa-solid fa-trash-can curPointer text-danger"></i></p>
+            </div>
+          </div>
+          <!-- place order cart  -->
+          <div class="col-md-3 col-lg-3 col-sm-5 cart-main ">
+            <div class="cart border border-1 rounded" id="my-cart">
+              <table class="table">
+                <thead>
+                  <h1 class="text-center text-white bg-secondary py-1 rounded">
+                    My-Cart <i class="bi bi-cart4"></i>
+                  </h1>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Total Added-Products:</th>
+                    <!-- here will be no dollar sign -->
+                    <td><span id="total-Products"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 00</span></td>
+                  </tr>
+                  <tr>
+                    <th>Price:</th>
+                    <td>$ <span id="price">00.00</span></td>
+                  </tr>
+                  <tr>
+                    <th>Delivery-Charge:</th>
+                    <td>$ <span id="delivery-charge">00.00</span></td>
+                  </tr>
+                  <tr>
+                    <th>Total-Tax:</th>
+                    <td>$ <span id="total-tax">00.00</span></td>
+                  </tr>
+                  <tr>
+                    <th >Total:</th>
+                    <td >$ <span id="total">00.00</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="parces text-center">
+                <button  class="btn btn-secondary text-center w-100">
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- product section  -->
       <div
         class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"
         id="cart-section"
       ></div>
     </main>
 
-    <footer class="footer bg-secondary mt-5">
+    <footer class="footer bg-secondary mt-5 ">
       <div class="container text-white">
         <div class="row text-center m-auto">
 
@@ -83,5 +146,9 @@
         <p >&copy;copyright by minhaj 2023 </p>
       </div>
     </footer>
+
+    <!-- <script src="./app/cart-icon.js"></script> -->
   </body>
 </html>
+
+

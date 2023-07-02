@@ -3,9 +3,16 @@ body {
   margin: 0;
   padding: 0;
 }
+.cart-hidden {
+  display: none;
+}
 .cart-icon {
   cursor: pointer;
   color: #fff;
+}
+
+.curPointer {
+  cursor: pointer;
 }
 
 .imageClass {
