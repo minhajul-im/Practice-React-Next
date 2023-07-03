@@ -11,8 +11,3 @@ const setInnerText = (id, price) => {
   let count = productPriceNum + priceNum;
   getId(id).innerText = count.toFixed(2);
 };
-// let x = getId("price").innerText;
-// let y = parseFloat(x);
-// let priceStr = parseFloat(price);
-// let total = y + priceStr;
-// getId("price").innerText = total.toFixed(2);
