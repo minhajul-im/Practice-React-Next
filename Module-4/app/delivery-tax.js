@@ -1,7 +1,7 @@
 import { getId } from "./get-id.js";
 
 // dynamic function
-const setInnerText = (id, taka) => {
+export const setInnerText = (id, taka) => {
   getId(id).innerText = taka;
 };
 

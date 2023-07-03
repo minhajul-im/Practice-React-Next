@@ -3,6 +3,7 @@ import { itemCount, totalProducts } from "./count.js";
 import { getId } from "./get-id.js";
 import { productTaka } from "./product-taka.js";
 import { deliveryAndTaxCharge } from "./delivery-tax.js";
+import { totalTaka } from "./total-taka.js";
 
 export const btnEvent = () => {
   document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
@@ -30,6 +31,9 @@ export const btnEvent = () => {
 
       //delivery & tax
       deliveryAndTaxCharge();
+
+      // total taka
+      totalTaka();
     });
   });
 };
