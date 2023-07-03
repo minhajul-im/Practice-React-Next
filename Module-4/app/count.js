@@ -1,8 +1,19 @@
-const getId = (id) => document.getElementById(id);
+import { getId } from "./get-id.js";
 
-export const itemCount = () => {
-  let itemsCount = getId("badge").innerText;
+// dynamic function set inner text
+const innerTextSet = (id) => {
+  let itemsCount = getId(id).innerText;
   let strCount = parseInt(itemsCount);
   let count = strCount + 1;
-  getId("badge").innerText = count;
+  getId(id).innerText = count;
+};
+
+//notification counter
+export const itemCount = () => {
+  innerTextSet("badge");
+};
+
+// total product counter
+export const totalProducts = () => {
+  innerTextSet("total-Products");
 };

@@ -1,4 +1,4 @@
-const getId = (id) => document.getElementById(id);
+import { getId } from "./get-id.js";
 
 const items = [1];
 
@@ -11,6 +11,7 @@ export const cashCart = (_id, title, category, price) => {
       "align-baseline",
       "py-2"
     );
+
     div.innerHTML = `
         <h5>${title}</h5>
         <p class="fst-italic"> ${category}</p>

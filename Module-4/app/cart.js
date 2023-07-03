@@ -1,5 +1,7 @@
+import { getId } from "./get-id.js";
+
 export const showDisplay = (carts) => {
-  const getCartSec = document.getElementById("cart-section");
+  const getCartSec = getId("cart-section");
 
   carts.forEach((cart) => {
     const createDiv = document.createElement("div");

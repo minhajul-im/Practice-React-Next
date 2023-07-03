@@ -1,7 +1,6 @@
 import { cashCart } from "./cash-cart.js";
-import { itemCount } from "./count.js";
-
-const getId = (id) => document.getElementById(id);
+import { itemCount, totalProducts } from "./count.js";
+import { getId } from "./get-id.js";
 
 export const btnEvent = () => {
   document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
@@ -9,6 +8,7 @@ export const btnEvent = () => {
       getId("badge").style.display = "block";
 
       itemCount();
+      totalProducts();
 
       // get product all dataset
       const id = btn.dataset.id;
