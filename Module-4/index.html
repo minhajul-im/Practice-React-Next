@@ -41,11 +41,14 @@
       <div class="cart-hidden cart-duration" id="cart-icon">
         <!-- cash cart section  -->
         <div  class="d-flex justify-content-between ">
-          <div class="w-75 p-4 " id="cart-cash-section">
+          <div class="w-75 p-4 " id="">
+            <!-- cash title & clear button  -->
             <div class="text-secondary d-flex justify-content-between">
               <h3>Product Items</h3>
               <h3><button id="clear-cash" class="btn btn-outline-danger">Clear Cash</button></h3>
             </div>
+            <!-- cash history add to cart  -->
+            <div id="cart-cash-section"></div>
  
           </div>
           <!-- place order cart  -->
@@ -61,23 +64,23 @@
                   <tr>
                     <th>Total Added-Products:</th>
                     <!-- here will be no dollar sign -->
-                    <td><span id="total-Products"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 00</span></td>
+                    <td><span id="total-Products" class="ms-3">0</span></td>
                   </tr>
                   <tr>
                     <th>Price:</th>
-                    <td>$ <span id="price">00</span></td>
+                    <td>$ <span id="price" >00</span></td>
                   </tr>
                   <tr>
                     <th>Delivery-Charge:</th>
-                    <td>$ <span id="delivery-charge">00</span></td>
+                    <td>$ <span id="delivery-charge" >00</span></td>
                   </tr>
                   <tr>
                     <th>Total-Tax:</th>
-                    <td>$ <span id="total-tax">00</span></td>
+                    <td>$ <span id="total-tax" >00</span></td>
                   </tr>
                   <tr>
                     <th >Total:</th>
-                    <td >$ <span id="total">00</span></td>
+                    <td >$ <span id="total" >00</span></td>
                   </tr>
                 </tbody>
               </table>

@@ -9,5 +9,5 @@ export const totalTaka = () => {
 
   const taka = parseFloat(price) + parseFloat(delivery) + parseFloat(tax);
 
-  getId("total").innerText = taka;
+  getId("total").innerText = taka.toFixed(2);
 };
