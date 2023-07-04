@@ -47,9 +47,11 @@ export const btnEvent = () => {
 
       // total taka
       totalTaka();
-      //
+
+      // plus button
       plusBtn(id, price);
 
+      //get dataset id
       let count = document.querySelector(
         `.item-counter-product[data-id="${id}"]`
       );
@@ -62,6 +64,8 @@ export const btnEvent = () => {
         );
         count.innerHTML = 1;
       }
+
+      // minus button
       minusBtn(id, price);
     });
   });

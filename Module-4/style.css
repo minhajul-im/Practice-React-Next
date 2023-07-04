@@ -3,6 +3,8 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* navbar section  */
 .cart-hidden {
   display: none;
 }
@@ -32,6 +34,7 @@ body {
   cursor: pointer;
 }
 
+/* image customize */
 .imageClass {
   height: 70%;
   width: 100%;
@@ -40,6 +43,7 @@ body {
   width: 600px;
 }
 
+/* footer section  */
 .footer {
   background-color: #f8f9fa;
   padding: 20px 0;

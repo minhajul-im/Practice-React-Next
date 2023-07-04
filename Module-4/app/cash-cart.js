@@ -2,6 +2,7 @@ import { getId } from "./get-id.js";
 
 const items = [1];
 
+// show history product
 export const cashCart = (id, title, category, price) => {
   items.forEach((_item) => {
     const div = document.createElement("div");
@@ -29,7 +30,9 @@ export const cashCart = (id, title, category, price) => {
         data-price="${price}" data-id="${id}"></i></span>
 
          </h5>
-        <h5>$ <span class="total-price-multi" data-id="${id}">${price}</span></h5>
+        <h5>$ <span class="total-price-multi"
+         data-id="${id}">${price}</span></h5>
+         
         <p>
         <i class="fa-solid fa-trash-can
         curPointer text-danger delete-history"
