@@ -9,8 +9,11 @@ export const cashCart = (id, title, category, price) => {
       "d-flex",
       "justify-content-around",
       "align-baseline",
-      "py-2"
+      "py-2",
+      "new-div-history"
     );
+
+    div.id = `${id}`;
 
     div.innerHTML = `
         <h5>${title}</h5>

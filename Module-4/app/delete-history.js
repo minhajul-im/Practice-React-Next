@@ -29,5 +29,6 @@ export const deleteHistory = (id, price) => {
     totalProductsMinus();
 
     // delete clear data set all
+    getId(`${id}`).innerHTML = "";
   });
 };
