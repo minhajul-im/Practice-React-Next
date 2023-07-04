@@ -1,7 +1,7 @@
 import { getId } from "./get-id.js";
 import { deliveryAndTaxCharge } from "./delivery-tax.js";
 import { totalTaka } from "./total-taka.js";
-import { itemCountMinus, totalProductsMinus } from "./count-minus.js";
+import { itemCountMinus } from "./count-minus.js";
 
 // delete history
 export const deleteHistory = (id, price) => {
@@ -17,6 +17,20 @@ export const deleteHistory = (id, price) => {
 
     getId("price").innerText = restPrice.toFixed(2);
 
+    let count = document.querySelector(
+      `.item-counter-product[data-id="${id}"]`
+    );
+
+    let minus = parseInt(count.innerHTML);
+
+    const productCount = getId("total-Products");
+
+    const totalProduct = parseInt(productCount.innerText);
+
+    const restProduct = totalProduct - minus;
+
+    productCount.innerText = restProduct;
+
     // delete clear data set all
     getId(`${id}`).innerHTML = "";
 
@@ -28,8 +42,5 @@ export const deleteHistory = (id, price) => {
 
     // notification count minus
     itemCountMinus();
-
-    // product count minus
-    totalProductsMinus();
   });
 };

@@ -1,7 +1,7 @@
 import { productTaka } from "./product-taka.js";
-import { totalProductsCounter } from "./count-plus.js";
 import { deliveryAndTaxCharge } from "./delivery-tax.js";
 import { totalTaka } from "./total-taka.js";
+import { totalProductsMinus } from "./count-minus.js";
 
 // minus button
 export const minusBtn = (id, price) => {
@@ -14,27 +14,28 @@ export const minusBtn = (id, price) => {
 
     let countId = count.dataset.id;
 
+    // total minus counter
+    totalProductsMinus();
+
     if (countId == id) {
       let count = document.querySelector(
         `.item-counter-product[data-id="${id}"]`
       );
-      let increase = parseInt(count.innerHTML);
-      let result = increase - 1;
+      let decrease = parseInt(count.innerHTML);
+      let result = decrease - 1;
       let totalCount = (count.innerHTML = result);
 
-      let totalPrice = totalCount * price;
+      let total = parseInt(totalCount);
+
+      let totalPrice = total * price;
 
       let prices = document.querySelector(
         `.total-price-multi[data-id="${id}"]`
       );
 
-      prices.innerHTML = totalPrice.toFixed(2);
+      let minusPrice = (prices.innerHTML = totalPrice.toFixed(2));
 
       // product taka
-      productTaka(price);
-
-      // total product counter
-      totalProductsCounter();
 
       // delivery tax update
       deliveryAndTaxCharge();
