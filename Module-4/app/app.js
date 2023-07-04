@@ -14,7 +14,7 @@ btnEvent();
 // cart icon
 cartIconClick;
 
-//clear cash
+//clear cash history
 clearCash;
 
 // buy now btn
