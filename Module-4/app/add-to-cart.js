@@ -4,6 +4,9 @@ import { getId } from "./get-id.js";
 import { productTaka } from "./product-taka.js";
 import { deliveryAndTaxCharge } from "./delivery-tax.js";
 import { totalTaka } from "./total-taka.js";
+import { deleteHistory } from "./delete-history.js";
+
+const dataSet = [];
 
 export const btnEvent = () => {
   document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
@@ -11,20 +14,29 @@ export const btnEvent = () => {
       // set notification
       getId("badge").style.display = "block";
 
-      // notification count
-      itemCount();
-
-      //product count
-      totalProducts();
-
       // get product all dataset
       const id = btn.dataset.id;
       const title = btn.dataset.title;
       const category = btn.dataset.category;
       const price = btn.dataset.price;
 
+      // data set
+      if (dataSet.find((e) => e === id)) {
+        return;
+      }
+      dataSet.push(id);
+
+      // notification count
+      itemCount();
+
+      //product count
+      totalProducts();
+
       // show cash history
       cashCart(id, title, category, price);
+
+      // delete history
+      deleteHistory(id, price);
 
       //product price
       productTaka(price);

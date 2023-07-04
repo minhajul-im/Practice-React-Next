@@ -4,6 +4,7 @@ export const showDisplay = (carts) => {
   const getCartSec = getId("cart-section");
 
   carts.forEach((cart) => {
+    // console.log(cart.id);
     const createDiv = document.createElement("div");
 
     createDiv.classList.add("col");
