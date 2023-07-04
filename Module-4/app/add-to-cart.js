@@ -5,8 +5,7 @@ import { productTaka } from "./product-taka.js";
 import { deliveryAndTaxCharge } from "./delivery-tax.js";
 import { totalTaka } from "./total-taka.js";
 import { deleteHistory } from "./delete-history.js";
-
-const dataSet = [];
+import { dataSet } from "./data-set.js";
 
 export const btnEvent = () => {
   document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {

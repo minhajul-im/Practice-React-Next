@@ -9,7 +9,11 @@ export const setInnerText = (id, taka) => {
 export const deliveryAndTaxCharge = () => {
   const priceId = getId("price").innerText;
 
-  const price = parseFloat(priceId);
+  taxAndDel(priceId);
+};
+
+const taxAndDel = (prices) => {
+  const price = parseFloat(prices);
 
   if (price > 500) {
     setInnerText("delivery-charge", 70);
