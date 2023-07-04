@@ -28,6 +28,12 @@ const taxAndDel = (prices) => {
     setInnerText("delivery-charge", 45);
     setInnerText("total-tax", (price * 0.05).toFixed(2));
   } else {
-    setInnerText("delivery-charge", 40);
+    if (price == 0) {
+      setInnerText("delivery-charge", 0);
+      setInnerText("total-tax", (price * 0).toFixed(2));
+    } else {
+      setInnerText("delivery-charge", 40);
+      setInnerText("total-tax", (price * 0).toFixed(2));
+    }
   }
 };
