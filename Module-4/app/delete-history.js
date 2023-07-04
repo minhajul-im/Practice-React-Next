@@ -2,19 +2,12 @@ import { getId } from "./get-id.js";
 import { deliveryAndTaxCharge } from "./delivery-tax.js";
 import { totalTaka } from "./total-taka.js";
 import { itemCountMinus } from "./count-minus.js";
+import { productTaka } from "./product-taka.js";
 
 // delete history
 export const deleteHistory = (id, price) => {
   let btn = document.querySelector(`.delete-history[data-id="${id}"]`);
   btn.addEventListener("click", () => {
-    //get product price
-    const productPrice = getId("price").innerText;
-    const convertNumber = parseFloat(productPrice);
-    const convertNumPrice = parseFloat(price);
-    const restPrice = convertNumber - convertNumPrice;
-
-    getId("price").innerText = restPrice.toFixed(2);
-
     // minus
     let count = document.querySelector(
       `.item-counter-product[data-id="${id}"]`
@@ -29,6 +22,15 @@ export const deleteHistory = (id, price) => {
     const restProduct = totalProduct - minus;
 
     productCount.innerText = restProduct;
+
+    //get product price
+    const productPrice = getId("price").innerText;
+    const convertNumber = parseFloat(productPrice);
+
+    const convertNumPrice = parseFloat(price);
+    const restPrice = convertNumber - convertNumPrice;
+
+    getId("price").innerText = restPrice.toFixed(2);
 
     // delete clear data set all
     getId(`${id}`).innerHTML = "";
