@@ -2,6 +2,7 @@ import { productTaka } from "./product-taka.js";
 import { deliveryAndTaxCharge } from "./delivery-tax.js";
 import { totalTaka } from "./total-taka.js";
 import { totalProductsMinus } from "./count-minus.js";
+import { getId } from "./get-id.js";
 
 // minus button
 export const minusBtn = (id, price) => {
@@ -35,7 +36,11 @@ export const minusBtn = (id, price) => {
 
       let minusPrice = (prices.innerHTML = totalPrice.toFixed(2));
 
+      // product taka empty
+      getId("price").innerText = 0;
+
       // product taka
+      productTaka(minusPrice);
 
       // delivery tax update
       deliveryAndTaxCharge();
