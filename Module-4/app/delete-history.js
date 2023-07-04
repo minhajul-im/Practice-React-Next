@@ -8,6 +8,7 @@ export const deleteHistory = (id, price) => {
   let btn = document.querySelector(`.delete-history[data-id="${id}"]`);
   btn.addEventListener("click", () => {
     const productPrice = getId("price").innerText;
+
     const convertNumber = parseFloat(productPrice);
 
     const convertNumPrice = parseFloat(price);

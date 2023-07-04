@@ -7,6 +7,7 @@ import { totalTaka } from "./total-taka.js";
 import { deleteHistory } from "./delete-history.js";
 import { dataSet } from "./data-set.js";
 import { plusBtn } from "./product-plus.js";
+import { minusBtn } from "./product-minus.js";
 
 export const btnEvent = () => {
   document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
@@ -61,6 +62,7 @@ export const btnEvent = () => {
         );
         count.innerHTML = 1;
       }
+      minusBtn(id, price);
     });
   });
 };
