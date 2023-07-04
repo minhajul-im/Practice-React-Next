@@ -9,11 +9,11 @@ const setInnerText = (id) => {
 };
 
 //notification counter
-export const itemCount = () => {
+export const notificationCounter = () => {
   setInnerText("badge");
 };
 
 // total product counter
-export const totalProducts = () => {
+export const totalProductsCounter = () => {
   setInnerText("total-Products");
 };

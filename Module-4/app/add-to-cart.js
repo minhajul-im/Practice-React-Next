@@ -1,5 +1,5 @@
 import { cashCart } from "./cash-cart.js";
-import { itemCount, totalProducts } from "./count.js";
+import { notificationCounter, totalProductsCounter } from "./count-plus.js";
 import { getId } from "./get-id.js";
 import { productTaka } from "./product-taka.js";
 import { deliveryAndTaxCharge } from "./delivery-tax.js";
@@ -26,10 +26,10 @@ export const btnEvent = () => {
       dataSet.push(id);
 
       // notification count
-      itemCount();
+      notificationCounter();
 
       //product count
-      totalProducts();
+      totalProductsCounter();
 
       // show cash history
       cashCart(id, title, category, price);
