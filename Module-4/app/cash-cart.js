@@ -19,9 +19,15 @@ export const cashCart = (id, title, category, price) => {
         <h5>${title}</h5>
         <p class="fst-italic"> ${category}</p>
         <h5>
-        <span><i class="fa-solid fa-minus curPointer"></i></span> 
-        <span>0</span> 
-        <span><i class="fa-solid fa-plus curPointer"></i></span>
+        
+        <span><i class="fa-solid fa-minus curPointer minus-item"
+         data-price="${price}" data-id="${id}"></i></span> 
+
+        <span class="item-counter-product" data-id="${id}">0</span> 
+        
+        <span><i class="fa-solid fa-plus curPointer plus-item" 
+        data-price="${price}" data-id="${id}"></i></span>
+
          </h5>
         <h5>$ <span>${price}</span></h5>
         <p>

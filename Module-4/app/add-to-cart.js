@@ -6,6 +6,7 @@ import { deliveryAndTaxCharge } from "./delivery-tax.js";
 import { totalTaka } from "./total-taka.js";
 import { deleteHistory } from "./delete-history.js";
 import { dataSet } from "./data-set.js";
+import { plusBtn } from "./product-plus.js";
 
 export const btnEvent = () => {
   document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
@@ -45,6 +46,8 @@ export const btnEvent = () => {
 
       // total taka
       totalTaka();
+      //
+      plusBtn(id, price);
     });
   });
 };
