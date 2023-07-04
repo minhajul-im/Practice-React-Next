@@ -48,6 +48,19 @@ export const btnEvent = () => {
       totalTaka();
       //
       plusBtn(id, price);
+
+      let count = document.querySelector(
+        `.item-counter-product[data-id="${id}"]`
+      );
+
+      let countId = count.dataset.id;
+
+      if (countId == id) {
+        let count = document.querySelector(
+          `.item-counter-product[data-id="${id}"]`
+        );
+        count.innerHTML = 1;
+      }
     });
   });
 };

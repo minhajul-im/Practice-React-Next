@@ -19,7 +19,7 @@ export const cashCart = (id, title, category, price) => {
         <h5>${title}</h5>
         <p class="fst-italic"> ${category}</p>
         <h5>
-        
+
         <span><i class="fa-solid fa-minus curPointer minus-item"
          data-price="${price}" data-id="${id}"></i></span> 
 
@@ -29,7 +29,7 @@ export const cashCart = (id, title, category, price) => {
         data-price="${price}" data-id="${id}"></i></span>
 
          </h5>
-        <h5>$ <span>${price}</span></h5>
+        <h5>$ <span class="total-price-multi" data-id="${id}">${price}</span></h5>
         <p>
         <i class="fa-solid fa-trash-can
         curPointer text-danger delete-history"

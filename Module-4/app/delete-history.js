@@ -16,6 +16,9 @@ export const deleteHistory = (id, price) => {
 
     getId("price").innerText = restPrice.toFixed(2);
 
+    // delete clear data set all
+    getId(`${id}`).innerHTML = "";
+
     // delivery  & tax charge minus
     deliveryAndTaxCharge();
 
@@ -27,8 +30,5 @@ export const deleteHistory = (id, price) => {
 
     // product count minus
     totalProductsMinus();
-
-    // delete clear data set all
-    getId(`${id}`).innerHTML = "";
   });
 };

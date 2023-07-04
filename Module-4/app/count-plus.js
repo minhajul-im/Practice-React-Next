@@ -1,7 +1,7 @@
 import { getId } from "./get-id.js";
 
 // dynamic function set inner text
-export const setInnerText = (id) => {
+const setInnerText = (id) => {
   let itemsCount = getId(id).innerText;
   let strCount = parseInt(itemsCount);
   let count = strCount + 1;
