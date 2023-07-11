@@ -2,6 +2,7 @@ import classes from "./Page.module.css";
 
 const Page = ({ data }) => {
   const { title, clock, mainTitle, button, text } = data;
+
   return (
     <div>
       <header className={classes.header}>
@@ -9,10 +10,17 @@ const Page = ({ data }) => {
       </header>
       <main className={classes.main}>
         <h3 className={classes.clock}>{clock}</h3>
-        <h1>{mainTitle}</h1>
+        <h1 className={classes.mainHeader}>{mainTitle}</h1>
         <section className={classes.section}>
+          <textarea
+            className={classes.textarea}
+            name=""
+            id=""
+            cols="30"
+            rows="5"
+          ></textarea>
           <button className={classes.button}>{button}</button>
-          <p>{text}</p>
+          <p className={classes.text}></p>
         </section>
       </main>
       <footer></footer>
