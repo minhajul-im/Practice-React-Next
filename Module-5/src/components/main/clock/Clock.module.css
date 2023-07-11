@@ -1,0 +1,12 @@
+/* clock  */
+.clock {
+  margin: 2rem auto;
+  border-radius: 0.5rem;
+  width: 280px;
+  padding: 0.3rem;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000000;
+  box-shadow: 0 0 10px #000000;
+  background-color: #ffffff;
+}

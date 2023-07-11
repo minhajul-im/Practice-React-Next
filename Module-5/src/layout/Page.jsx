@@ -2,7 +2,8 @@ import classes from "./Page.module.css";
 import { useState, useEffect } from "react";
 
 const Page = ({ data }) => {
-  const { title, mainTitle, button } = data;
+  // get data
+  const { title, mainTitle, button, linkedin, github, facebook } = data;
 
   // time function
   const [clock, setClock] = useState(new Date());
@@ -16,14 +17,17 @@ const Page = ({ data }) => {
     };
   }, []);
 
-  // input value
+  // textarea value
+  const [output, setOutput] = useState("");
   const [text, setText] = useState("");
+
   const handelTextarea = (e) => {
     setText(e.target.value);
   };
 
   // button function
   const handelButton = () => {
+    setOutput(text);
     setText("");
   };
 
@@ -51,11 +55,30 @@ const Page = ({ data }) => {
             {button}
           </button>
 
-          <p className={classes.text}>{text}</p>
+          <p className={classes.text}>{output}</p>
         </section>
       </main>
 
-      <footer></footer>
+      <footer className={classes.footer}>
+        <ul className={classes.ul}>
+          <li className={classes.li}>
+            <a className={classes.a} href={linkedin.at(0)}>
+              {linkedin.at(1)}
+            </a>
+          </li>
+          <li className={classes.li}>
+            <a className={classes.a} href={github.at(0)}>
+              {github.at(1)}
+            </a>
+          </li>
+          <li className={classes.li}>
+            <a className={classes.a} href={facebook.at(0)}>
+              {facebook.at(1)}
+            </a>
+          </li>
+        </ul>
+        <p className={classes.copy}> &copy;copyright by minhaj</p>
+      </footer>
     </div>
   );
 };
