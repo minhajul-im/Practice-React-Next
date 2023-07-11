@@ -79,6 +79,7 @@
 
 /* text  */
 .text {
+  margin: 1rem 0;
   color: #3e3e3e;
   letter-spacing: 0.6px;
   font-size: 1.3rem;
