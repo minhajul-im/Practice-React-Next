@@ -87,11 +87,13 @@
   height: 150px;
 }
 
+/* footer  */
 .footer {
   background-color: #000000;
   padding: 0.5rem 0;
 }
 
+/* ul  */
 .ul {
   display: flex;
   flex-direction: column;
@@ -101,15 +103,20 @@
   justify-content: center;
 }
 
+/* li  */
 .li {
   list-style: none;
 }
+
+/* a  */
 .a {
   text-decoration: none;
   color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
 }
+
+/* copy right  */
 .copy {
   margin: 1.5rem 0 0;
   text-align: center;

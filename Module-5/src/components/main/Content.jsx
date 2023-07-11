@@ -7,6 +7,7 @@ const Content = ({ data }) => {
 
   // input value
   const [output, setOutput] = useState("");
+
   const [text, setText] = useState("");
 
   const handelTextarea = (e) => {
