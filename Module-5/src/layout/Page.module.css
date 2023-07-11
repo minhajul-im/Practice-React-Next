@@ -1,0 +1,60 @@
+/* header  */
+.header {
+  background-color: #ffffff;
+}
+
+/* tittle */
+.title {
+  margin: 0;
+  padding: 0.3rem;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000000;
+  box-shadow: 0 0 10px #000000;
+  cursor: pointer;
+}
+
+.clock {
+  margin: 2rem auto;
+  border-radius: 0.5rem;
+  width: 280px;
+  padding: 0.3rem;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000000;
+  box-shadow: 0 0 10px #000000;
+  background-color: #ffffff;
+}
+
+/* main  */
+.main {
+  width: 60%;
+  margin: 1rem auto;
+}
+
+/* section  */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* button  */
+.button {
+  outline: none;
+  border: 1px solid #000000;
+  color: #ffffff;
+  padding: 0.6rem;
+  border-radius: 0.4rem;
+  background-color: #040404;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ffffff;
+  color: #000000;
+  transition-duration: 0.5s;
+}
