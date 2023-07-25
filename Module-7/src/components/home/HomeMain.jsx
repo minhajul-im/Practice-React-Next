@@ -6,7 +6,7 @@ const HomeMain = () => {
     <div>
       <h1 className={classes.h1}>Heyooooo, How's it going?</h1>
 
-      <img src={image} alt="Digital Currency" />
+      <img className={classes.img} src={image} alt="Digital Currency" />
     </div>
   );
 };
