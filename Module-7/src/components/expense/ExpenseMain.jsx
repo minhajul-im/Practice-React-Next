@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import classes from "./Expense.module.css";
-import image from "../../assets/undraw_Finance_re_gnv2.png";
+import image from "../../assets/undraw_empty_cart_co35.svg";
 
 const data = {
   title: `Your Expense`,
@@ -26,7 +26,7 @@ const ExpenseMain = () => {
       return;
     }
     const numberTK = parseFloat(number);
-    setTaka((p) => p - numberTK);
+    setTaka((pre) => pre - numberTK);
     setNumber("");
   };
 

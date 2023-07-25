@@ -35,7 +35,6 @@ const lists = [
 
 const Layout = (props) => {
   const location = window.location.pathname;
-  console.log(location);
 
   return (
     <div>
