@@ -13,6 +13,23 @@ const ExpenseMain = () => {
   const [taka, setTaka] = useState(0);
   const [number, setNumber] = useState("");
 
+  useEffect(() => {
+    const taka = window.localStorage.getItem("taka");
+    const numberTaka = parseInt(taka);
+    setTaka(numberTaka);
+  }, []);
+
+  const handleButton = () => {
+    if (isNaN(number)) {
+      alert("Please Provide Number");
+      setNumber("");
+      return;
+    }
+    const numberTK = parseFloat(number);
+    setTaka((p) => p - numberTK);
+    setNumber("");
+  };
+
   const { title, label, button } = data;
 
   return (
