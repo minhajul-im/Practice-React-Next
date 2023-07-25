@@ -34,6 +34,9 @@ const lists = [
 ];
 
 const Layout = (props) => {
+  const location = window.location.pathname;
+  console.log(location);
+
   return (
     <div>
       <header className={classes.header}>
@@ -43,7 +46,12 @@ const Layout = (props) => {
           <ul className={classes.ul}>
             {lists.map((list) => (
               <li key={list?.id}>
-                <Link className={classes.link} to={list?.path}>
+                <Link
+                  className={
+                    location === list.path ? classes.active : classes.link
+                  }
+                  to={list?.path}
+                >
                   {list?.name}
                 </Link>
               </li>
