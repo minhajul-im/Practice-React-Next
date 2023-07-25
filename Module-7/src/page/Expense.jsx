@@ -1,11 +1,11 @@
-// import React from "react";
+import ExpenseMain from "../components/expense/ExpenseMain";
 import Layout from "../layout/Layout";
 
 const Cart = () => {
   return (
     <div>
       <Layout>
-        <h1 style={{ margin: "0 auto" }}>Hello home Page</h1>
+        <ExpenseMain />
       </Layout>
     </div>
   );

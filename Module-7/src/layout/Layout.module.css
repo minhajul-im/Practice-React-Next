@@ -1,6 +1,5 @@
 /* header  */
-.header,
-.footer {
+.header {
   background-color: #ffffff;
   box-shadow: 0 0 10px #000000;
 }
@@ -55,14 +54,18 @@
 /* main  */
 .main {
   width: 75%;
-  height: 100vh;
+  padding: 2rem 0;
+  /* height: 100vh; */
   margin: 0 auto;
-  background-color: aqua;
+  /* background-color: aqua; */
 }
 
 /* footer style  */
+.footer {
+  background-color: #272424;
+}
 .footer p {
-  color: #272424;
+  color: #ffffff;
   padding: 0.8rem 0;
   font-weight: 500;
   font-size: 12;

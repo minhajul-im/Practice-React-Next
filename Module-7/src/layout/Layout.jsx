@@ -19,12 +19,12 @@ const lists = [
   {
     id: getId.next().value,
     name: "income",
-    path: "/shopping",
+    path: "/income",
   },
   {
     id: getId.next().value,
     name: "expense",
-    path: "/cart",
+    path: "/expense",
   },
   {
     id: getId.next().value,
