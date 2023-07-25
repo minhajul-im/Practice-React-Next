@@ -6,7 +6,7 @@ const data = {
   title: `Your Expense`,
   image: `../asset/undraw_finance_re_gnv2.svg`,
   label: `You can Expense your money`,
-  button: `expense to amount`,
+  button: `expense to Amount`,
 };
 
 const ExpenseMain = () => {
@@ -26,8 +26,15 @@ const ExpenseMain = () => {
       return;
     }
     const numberTK = parseFloat(number);
-    setTaka((pre) => pre - numberTK);
-    setNumber("");
+
+    if (taka < numberTK) {
+      alert("You have no enough Money!😢");
+      setNumber("");
+      return;
+    } else {
+      setTaka((pre) => pre - numberTK);
+      setNumber("");
+    }
   };
 
   const { title, label, button } = data;

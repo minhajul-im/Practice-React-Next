@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import classes from "./Income.module.css";
-import image from "../../assets/undraw_Finance_re_gnv2.png";
+import image from "../../assets/undraw_savings_re_eq4w.svg";
 
 const data = {
   title: `Your Income`,

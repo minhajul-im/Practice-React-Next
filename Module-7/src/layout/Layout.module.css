@@ -30,6 +30,7 @@
   margin: 0;
   padding: 0;
 }
+
 .ul > li {
   margin: 0;
   padding: 0;
@@ -51,6 +52,7 @@
   transition-duration: 0.5s;
 }
 
+/* active click  */
 .active {
   color: #b90404;
 }

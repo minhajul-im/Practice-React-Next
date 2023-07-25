@@ -8,7 +8,9 @@ function* generateId() {
     yield id++;
   }
 }
+
 const getId = generateId();
+
 // list item data
 const lists = [
   {
@@ -59,8 +61,10 @@ const Layout = (props) => {
         </nav>
       </header>
 
+      {/* main  */}
       <main className={classes.main}>{props.children}</main>
 
+      {/* footer  */}
       <footer className={classes.footer}>
         <p>&copy;copyright by minhaj</p>
       </footer>

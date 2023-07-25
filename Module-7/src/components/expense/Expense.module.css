@@ -1,19 +1,23 @@
+/* income section style  */
 .incomeSec {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* img  */
 .img {
   width: 50%;
 }
 
+/* title */
 .title {
   color: gray;
   text-shadow: 2px 2px 4px #ffffff;
   text-align: center;
 }
 
+/* input style  */
 .inputSec {
   display: flex;
   flex-direction: column;
@@ -21,10 +25,12 @@
   margin: 1.5rem 0;
 }
 
+/* label style  */
 .inputSec > label {
   color: #6d6d6d86;
 }
 
+/* button & input */
 .inputSec > input,
 button {
   padding: 0.5rem 1rem;
@@ -33,11 +39,13 @@ button {
   font-size: 0.8rem;
 }
 
+/* input style  */
 .inputSec > input {
   color: #b4b4b4;
   border: 1px solid #bfbebe;
 }
 
+/* button style  */
 .inputSec > button {
   border: 1px solid black;
   color: #fcfcfc;
