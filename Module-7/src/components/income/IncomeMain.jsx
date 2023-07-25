@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./Income.module.css";
+import image from "../../assets/undraw_Finance_re_gnv2.png";
 
 const data = {
   title: `Your Income`,
@@ -9,33 +10,41 @@ const data = {
 };
 
 const IncomeMain = () => {
-  const [addTaka, setAddTaka] = useState(0);
   const [taka, setTaka] = useState(0);
+  const [inputAmount, setInputAmount] = useState("");
 
   const handleInput = (e) => {
-    setTaka(e.target.value);
+    setInputAmount(e.target.value);
   };
+  useEffect(() => {
+    window.localStorage.setItem("taka", taka);
+  }, [taka]);
 
   const handleButton = () => {
-    const totalTaka = new Function(`return ${addTaka}+${taka}`);
-    setAddTaka(totalTaka());
-    setTaka(0);
+    if (isNaN(inputAmount)) {
+      alert("Please Provide Number");
+      setInputAmount("");
+      return;
+    }
+    const inputTK = parseFloat(inputAmount);
+    setTaka((p) => p + inputTK);
+    setInputAmount("");
   };
+
   const { title, label, button } = data;
 
   return (
     <div className={classes.incomeSec}>
-      <div>
-        <img src="./undraw_Finance_re_gnv2.png" alt="Finance" />
-      </div>
-      <div>
+      <img className={classes.img} src={image} alt="Finance" />
+
+      <div style={{ width: "100%" }}>
         <h1 className={classes.title}>{title}</h1>
 
-        <h1 className={classes.title}> {addTaka}</h1>
+        <h1 className={classes.title}> ৳ {taka} /- </h1>
 
         <div className={classes.inputSec}>
           <label>{label}</label>
-          <input type="number" value={taka} onChange={handleInput} />
+          <input type="text" value={inputAmount} onChange={handleInput} />
           <button onClick={handleButton}> {button} </button>
         </div>
       </div>

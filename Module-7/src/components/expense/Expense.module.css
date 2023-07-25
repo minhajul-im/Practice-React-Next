@@ -1,8 +1,12 @@
-/* .inputSec {
+.incomeSec {
   display: flex;
   justify-content: center;
   align-items: center;
-} */
+}
+
+.img {
+  width: 50%;
+}
 
 .title {
   color: gray;
