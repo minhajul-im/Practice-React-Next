@@ -1,4 +1,4 @@
-// import Link from "next/link";
+import Link from "next/link";
 
 const Nav = () => {
   return (
@@ -14,7 +14,7 @@ const Nav = () => {
           space-x-0  uppercase"
         >
           <li className="cursor-pointer hover:underline transition-all hover:text-black">
-            home
+            <Link href={"../home"}> home</Link>
           </li>
           <li className="cursor-pointer hover:underline transition-all hover:text-black">
             docs
