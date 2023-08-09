@@ -15,6 +15,8 @@ const Home = () => {
     };
   }, [time]);
 
+  // Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt temporibus eum odio magni saepe est exercitationem maxime aliquam iure dolorem, molestiae laborum molestias veniam quia quisquam praesentium fugit corrupti minus?
+
   const data = (init) => (init.toString().length === 1 ? `0${init}` : init);
 
   return (

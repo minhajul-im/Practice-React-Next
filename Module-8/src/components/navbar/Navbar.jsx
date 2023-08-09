@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const links = [
   {
@@ -29,15 +31,23 @@ const links = [
 ];
 
 const Navbar = () => {
+  const path = usePathname();
   return (
     <div className="bg-green-700">
       <div className="w-3/5 m-auto">
         <div>
-          <p>Assignment</p>
+          <p>Next App</p>
         </div>
         <div className="flex gap-4 justify-end">
           {links.map((link) => (
-            <Link key={link.id} href={link.path}>
+            <Link
+              key={link.id}
+              href={{
+                pathname: link.path,
+                query: { id: link.id, title: link.title, name: "minhaj" },
+              }}
+              className={path === link.path ? "text-red-600" : "text-white"}
+            >
               {link.title}
             </Link>
           ))}
