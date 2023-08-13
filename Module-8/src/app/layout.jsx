@@ -1,7 +1,4 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Module-8",
@@ -11,7 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning={true} className={inter.className}>
+      <body suppressHydrationWarning={true}>
         <div className="w-3/5 m-auto">{children}</div>
       </body>
     </html>
