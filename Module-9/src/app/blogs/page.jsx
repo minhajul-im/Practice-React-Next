@@ -5,7 +5,9 @@ import Link from "next/link";
 const Blog = async () => {
   return (
     <div>
-      <h1 className="text-center my-4 py-3 font-bold text-4xl">All Blogs</h1>
+      <h1 className="text-center my-4 py-3 font-bold text-4xl text-blue-200">
+        All Blogs
+      </h1>
       {data.map((item) => (
         <Link
           className="flex my-4 p-4 rounded border border-gray-200 gap-x-4"
@@ -19,10 +21,16 @@ const Blog = async () => {
                 ? item?.title
                 : item?.title + "."}
             </h2>
-            <p className="mt-2">{item?.des}</p>
+            <p className="mt-2 text-slate-400">{item?.des}</p>
           </div>
         </Link>
       ))}
+      <Link
+        className="capitalize font-semibold text-xs py-5 text-blue-600"
+        href="/"
+      >
+        back to home
+      </Link>
     </div>
   );
 };

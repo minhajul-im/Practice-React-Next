@@ -5,7 +5,9 @@ const Page = () => {
   return (
     <div className="text-center">
       <h1 className="text-4xl font-bold my-5">WelCome</h1>
-      <h2 className="text-4xl capitalize pb-8">Simple blog project</h2>
+      <h2 className="text-4xl capitalize pb-8 text-blue-200">
+        Simple blog project
+      </h2>
 
       <Link
         className="py-10 text-blue-700 uppercase

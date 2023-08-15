@@ -28,13 +28,13 @@ const Path = ({ params }) => {
         height={130}
         width={390}
       />
-      <h2 className="text-3xl capitalize space-y-6 my-5 py-4 text-center">
+      <h2 className="text-4xl font-bold text-blue-200 capitalize space-y-6 my-5 py-4 text-center">
         {post?.title[post?.title.length - 1] === "."
           ? post?.title
           : post?.title + "."}
       </h2>
 
-      <p className="my-4 text-xl space-x-2">
+      <p className="my-4 text-xl space-x-2 text-slate-400">
         {post?.body[post?.body.length - 1] === "."
           ? post?.body
           : post?.body + "."}
@@ -65,11 +65,9 @@ const Path = ({ params }) => {
       </p>
 
       <div className=" flex justify-between items-baseline capitalize font-semibold text-xs my-5 text-blue-600">
-        <Link className="" href="/blogs">
-          back to blogs
-        </Link>
+        <Link href="/blogs">back to blogs</Link>
 
-        <div className="flex gap-x-4">
+        <div className="flex gap-x-4 items-baseline">
           <Link href={`/blogs/post/${parseInt(getId) - 1}`}>previous</Link>
           <Link href={`/blogs/post/${parseInt(getId) + 1}`}>next</Link>
         </div>
