@@ -1,9 +1,11 @@
 import data from "@/app/db/blogData.json";
 import Image from "next/image";
+import Link from "next/link";
 
-const Id = ({ params }) => {
-  const getId = params.id;
+const Path = ({ params }) => {
+  const getId = params.path;
 
+  // covert array to object
   const obj = data.reduce((acc, cur) => {
     acc[cur.id] = {
       ...cur,
@@ -11,13 +13,11 @@ const Id = ({ params }) => {
     return acc;
   }, {});
 
-  const arr = Object.keys(obj);
+  // check path id and object key
+  const getPostId = Object.keys(obj).find((id) => id == getId);
 
-  const find = (id) => arr.find((num) => num == id);
-
-  const num = find(getId);
-
-  const post = obj[num];
+  // get post
+  const post = obj[getPostId];
 
   return (
     <div>
@@ -63,8 +63,19 @@ const Id = ({ params }) => {
           ? post?.body
           : post?.body + "."}
       </p>
+
+      <div className=" flex justify-between items-baseline capitalize font-semibold text-xs my-5 text-blue-600">
+        <Link className="" href="/blogs">
+          back to blogs
+        </Link>
+
+        <div className="flex gap-x-4">
+          <Link href={`/blogs/post/${parseInt(getId) - 1}`}>previous</Link>
+          <Link href={`/blogs/post/${parseInt(getId) + 1}`}>next</Link>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Id;
+export default Path;
