@@ -1,7 +1,12 @@
-import links from "@/db/links";
+"use client";
+
 import Link from "next/link";
+import links from "@/db/links";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const path = usePathname();
+
   return (
     <header className="bg-slate-800">
       <nav
@@ -10,9 +15,11 @@ const Header = () => {
       >
         {links.map((link) => (
           <Link
-            className="hover:text-white hover:duration-100 select-none"
             key={link.id}
             href={link.link}
+            className={`${
+              path == link.link ? "text-white" : "text-sky-500"
+            } select-none`}
           >
             {link.title}
           </Link>
