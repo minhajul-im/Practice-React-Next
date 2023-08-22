@@ -25,7 +25,7 @@ const Footer = () => {
           />
         </a>
       </div>
-      <i className="py-4 select-none">&copy;copyright by minhaj</i>
+      <i className="select-none">&copy;copyright by minhaj</i>
     </div>
   );
 };

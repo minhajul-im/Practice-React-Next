@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body suppressHydrationWarning={true} className={inter.className}>
         <Header />
-        <div className="w-4/6 mx-auto bg-purple-400"> {children}</div>
+        <div className="w-4/6 mx-auto"> {children}</div>
         <Footer />
       </body>
     </html>
