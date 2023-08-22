@@ -25,11 +25,6 @@ const links = [
   },
   {
     id: getID.next().value,
-    title: "single-blog",
-    link: "/single-blog",
-  },
-  {
-    id: getID.next().value,
     title: "contact",
     link: "/contact",
   },
