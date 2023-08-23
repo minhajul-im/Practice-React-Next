@@ -1,20 +1,14 @@
 import { getID } from "./links";
 
 export const init = {
-  fName: {
+  name: {
     id: getID.next().value,
-    label: "What is your first name?",
+    label: "What is your name?",
     type: "text",
     value: "",
-    placeholder: "Please provide your first name....",
+    placeholder: "Please provide your name....",
   },
-  lName: {
-    id: getID.next().value,
-    label: "What is your last name?",
-    type: "text",
-    value: "",
-    placeholder: "Please provide your last name....",
-  },
+
   email: {
     id: getID.next().value,
     label: "What is your email?",

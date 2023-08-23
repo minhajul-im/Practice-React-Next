@@ -7,8 +7,8 @@ const Page = () => {
 
   return (
     <div className="p-10">
-      <h1 className="text-4xl text-cyan-300 text-center py-8">
-        Hello contact Form
+      <h1 className="text-4xl text-cyan-300 text-center py-4 capitalize">
+        send your message
       </h1>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -36,7 +36,7 @@ const Page = () => {
          border-gray-300 text-gray-500 rounded"
           name="message"
           cols="30"
-          rows="10"
+          rows="5"
           value={textarea}
           onChange={handleText}
         ></textarea>
