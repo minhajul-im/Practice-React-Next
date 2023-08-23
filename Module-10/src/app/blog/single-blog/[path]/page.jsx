@@ -24,6 +24,11 @@ const Page = async ({ params }) => {
       {/* content  */}
       <p className="text-xl py-4">{details.content}</p>
 
+      <br />
+
+      {/* content  */}
+      <p className="text-xl py-4">{details.content}</p>
+
       {/* back button  */}
       <div
         className="text-xs font-semibold py-5
