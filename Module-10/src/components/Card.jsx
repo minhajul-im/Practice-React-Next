@@ -22,13 +22,6 @@ const Card = async () => {
             width={300}
           />
 
-          <code className="italic py-4 text-gray-600 text-xs">
-            {`date:${item?.created_at.slice(0, 10)} | 
-            time:${item?.created_at.slice(11, 19)}${
-              item?.id.toString() % 2 === 1 ? "am" : "pm"
-            }`}
-          </code>
-
           <h1 className="text-2xl my-2 whitespace-pre-line py-2">
             {item?.title}
           </h1>
