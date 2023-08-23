@@ -15,13 +15,23 @@ const Card = async () => {
         rounded-md p-2"
         >
           <Image
-            className="mx-auto rounded-md"
+            className="mx-auto rounded-md pb-4"
             src={item?.img}
             alt="tamim"
             height={200}
             width={300}
           />
-          <h1 className="text-2xl my-2 whitespace-pre-line">{item?.title}</h1>
+
+          <code className="italic py-4 text-gray-600 text-xs">
+            {`date:${item?.created_at.slice(0, 10)} | 
+            time:${item?.created_at.slice(11, 19)}${
+              item?.id.toString() % 2 === 1 ? "am" : "pm"
+            }`}
+          </code>
+
+          <h1 className="text-2xl my-2 whitespace-pre-line py-2">
+            {item?.title}
+          </h1>
           <p>{item?.short}</p>
         </Link>
       ))}

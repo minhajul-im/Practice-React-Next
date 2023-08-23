@@ -11,14 +11,15 @@ const Navbar = async () => {
        justify-end"
       >
         {data.map((item) => (
-          <p
+          <Link
+            href={`/blog/${item.id}`}
             className="text-xs font-semibold border
              border-gray-100 rounded py-2 px-4 
              select-none hover:bg-slate-400"
             key={item.id}
           >
             {item.name}
-          </p>
+          </Link>
         ))}
       </div>
     </div>
