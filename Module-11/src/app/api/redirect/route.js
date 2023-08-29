@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
+import { redirect } from "next/navigation";
 
-export const POST = async () => {
-  return NextResponse.json({ success: "authorized" }, { status: 201 });
+export const GET = async () => {
+  redirect("/");
 };

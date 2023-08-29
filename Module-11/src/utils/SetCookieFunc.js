@@ -26,7 +26,7 @@ const convertToTheArrayByObject = (obj) =>
 
 const SetCookiesFunc = () => {
   const [state, setState] = useState({ ...init });
-  const [cookie, setCookie] = useState({});
+  const [my_cookies, setCookie] = useState({});
 
   const data = convertToTheArrayByObject(state);
 
@@ -50,13 +50,13 @@ const SetCookiesFunc = () => {
     if (Object.keys(data).length > 0) {
       setCookie(data);
 
-      setState(init);
+      // setState(init);
     }
   };
 
   return {
     data,
-    cookie,
+    my_cookies,
     handleOnChange,
     handleOnClick,
   };
