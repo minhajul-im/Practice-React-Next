@@ -22,6 +22,16 @@ export const middleware = (req, _res) => {
     console.log("api set cookies");
   } else if (req.nextUrl.pathname.startsWith("/api/redirect")) {
     console.log("redirect");
+  } else if (req.nextUrl.pathname.startsWith("/api/cookie")) {
+    const header_set = new Headers(req.headers);
+
+    const get_token = header_set.get("X-Auth-Token");
+
+    if (get_token === "12345") {
+      return NextResponse.next();
+    } else {
+      return NextResponse.json({ mgs: "unauthorized" }, { status: 401 });
+    }
   } else {
     return NextResponse.json({ mgs: "unauthorized" }, { status: 401 });
   }
