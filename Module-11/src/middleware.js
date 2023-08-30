@@ -2,17 +2,15 @@ import { NextResponse } from "next/server";
 
 export const middleware = (req, _res) => {
   if (req.nextUrl.pathname.startsWith("/api/authorization")) {
-    const getHeader = new Headers(req.headers);
-    const header = getHeader.get("token_cookie");
+    const header = new Headers(req.headers);
 
-    if (header === "XYZ987APK") {
-      getHeader.set("header_id", "10101");
-      getHeader.set("header_name", "text_header_name");
-      return NextResponse.next({
-        request: {
-          header: getHeader,
-        },
-      });
+    const get_token = header.get("get_token");
+
+    if (get_token === "XYZ987APK") {
+      header.set("user", "@minhajul-im");
+      header.set("email", "minhajul@gmail.com");
+
+      return NextResponse.next({ request: { headers: header } });
     } else {
       return NextResponse.json({ mgs: "unauthorized" }, { status: 401 });
     }
@@ -28,7 +26,10 @@ export const middleware = (req, _res) => {
     const get_token = header_set.get("X-Auth-Token");
 
     if (get_token === "12345") {
-      return NextResponse.next();
+      header_set.set("user", "@minhajul-im");
+      header_set.set("email", "minhajul@gmail.com");
+
+      return NextResponse.next({ request: { headers: header_set } });
     } else {
       return NextResponse.json({ mgs: "unauthorized" }, { status: 401 });
     }
