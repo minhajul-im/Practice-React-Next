@@ -4,15 +4,11 @@ import { NextResponse } from "next/server";
 export const POST = async () => {
   const header = headers();
 
-  const get_user = header.get("user");
-  const get_email = header.get("email");
+  const header_id = header.get("header_id");
+  const header_text = header.get("header_name");
 
   return NextResponse.json(
-    {
-      success: "authorized",
-      get_user: get_user,
-      get_email: get_email,
-    },
+    { success: "authorized", header_id: header_id, header_text: header_text },
     { status: 201 }
   );
 };
