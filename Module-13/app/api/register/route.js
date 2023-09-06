@@ -11,10 +11,12 @@ export const POST = async (req, _res) => {
 
     await connectMongoDB(process.env.MONGODB_URI);
 
+    console.log({ name, email, hashPassword });
+
     await User.create({ name, email, hashPassword });
 
     // const user = new User({ name, email, hashPassword });
-    // user.save();
+    // await user.save();
 
     return NextResponse.json(
       { message: "Your register done!" },
