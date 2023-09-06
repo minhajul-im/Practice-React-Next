@@ -28,17 +28,30 @@ const Register = () => {
     }
 
     try {
+      // const resUserExists = await fetch("api/userExists", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify(email),
+      // });
+
+      // const { user } = await resUserExists.json();
+
+      // if (user) {
+      //   console.log("set error exists acc");
+      //   setError("Already User Exists");
+      //   return;
+      // }
+
       const res = await fetch("api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(state),
       });
-      if (!res.ok) {
-        // const form = e.target;
-        // form.reset();
-        console.log("Your registration failed!");
-      } else {
+
+      if (res.ok) {
         setState(init);
+      } else {
+        console.log("Your registration failed!");
       }
     } catch (e) {
       console.log("Error during the Registration" + e);
