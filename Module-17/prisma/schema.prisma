@@ -1,0 +1,97 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                Int                 @id @default(autoincrement())
+  firstName         String
+  lastName          String
+  email             String              @unique
+  mobile            String              @unique
+  password          String
+  otp               String              @unique
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  Categories        Categories[]
+  Products          Products[]
+  Custmers          Custmers[]
+  Invoices          Invoices[]
+  Invoices_products Invoices_products[]
+}
+
+model Categories {
+  id        Int      @id @default(autoincrement())
+  name      String
+  user_id   Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  User     User       @relation(fields: [user_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  Products Products[]
+}
+
+model Products {
+  id                Int                 @id @default(autoincrement())
+  name              String
+  price             String
+  unit              String
+  img_url           String
+  user_id           Int
+  category_id       Int
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  User              User                @relation(fields: [user_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  Categories        Categories          @relation(fields: [category_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  Invoices_products Invoices_products[]
+}
+
+model Custmers {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  mobile    String
+  user_id   Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  User     User       @relation(fields: [user_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  Invoices Invoices[]
+}
+
+model Invoices {
+  id          Int      @id @default(autoincrement())
+  total       String
+  discount    String
+  vat         String
+  payable     String
+  user_id     Int
+  custmers_id Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  User              User                @relation(fields: [user_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  Custmers          Custmers            @relation(fields: [custmers_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  Invoices_products Invoices_products[]
+}
+
+model Invoices_products {
+  id          Int      @id @default(autoincrement())
+  user_id     Int
+  product_id  Int
+  invoices_id Int
+  cty         String
+  sale_price  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  User     User     @relation(fields: [user_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  Products Products @relation(fields: [product_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  Invoices Invoices @relation(fields: [invoices_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+}
