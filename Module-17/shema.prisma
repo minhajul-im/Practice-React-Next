@@ -1,0 +1,179 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+model Brands {
+    id         BigInt     @id @default(autoincrement()) @db.UnsignedBigInt
+    barndName  String     @db.VarChar(40)
+    barndImage String     @db.VarChar(200)
+    createdAt  DateTime   @default(now()) @db.Timestamp(0)
+    updatedAt  DateTime   @default(now()) @updatedAt @db.Timestamp(0)
+    Products   Products[]
+}
+
+model Categories {
+    id            BigInt     @id @default(autoincrement()) @db.UnsignedBigInt
+    categoryName  String     @db.VarChar(50)
+    categoryImage String     @db.VarChar(200)
+    createdAt     DateTime   @default(now()) @db.Timestamp(0)
+    updatedAt     DateTime   @default(now()) @updatedAt @db.Timestamp(0)
+    Products      Products[]
+}
+
+enum remarks {
+    new
+    trending
+    popular
+}
+
+model Products {
+    id               BigInt           @id @default(autoincrement()) @db.UnsignedBigInt
+    title            String           @db.VarChar(100)
+    shortDescription String           @db.VarChar(220)
+    price            String           @db.VarChar(20)
+    discount         String           @db.TinyText
+    discountPrice    String           @db.VarChar(20)
+    image            String           @db.VarChar(200)
+    star             Float            @db.Double
+    sock             String           @db.VarChar(20)
+    remark           remarks
+    brandsId         BigInt
+    categoryId       BigInt
+    createdAt        DateTime         @default(now()) @db.Timestamp(0)
+    updatedAt        DateTime         @default(now()) @updatedAt @db.Timestamp(0)
+    Brands           Brands           @relation(fields: [brandsId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+    Categories       Categories       @relation(fields: [categoryId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+    ProductDetails   ProductDetails?
+    ProductSlider    ProductSlider?
+    WhisesList       WhisesList[]
+    ProductCard      ProductCard[]
+    ProductInvoice   ProductInvoice[]
+    ProductReview    ProductReview[]
+}
+
+model ProductDetails {
+    id        BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+    image1    String   @db.VarChar(200)
+    image2    String   @db.VarChar(200)
+    image3    String   @db.VarChar(200)
+    image4    String   @db.VarChar(200)
+    productId BigInt   @unique
+    createdAt DateTime @default(now()) @db.Timestamp(0)
+    updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+    Products  Products @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+}
+
+model ProductSlider {
+    id               BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+    title            String   @db.VarChar(60)
+    shortDescription String   @db.VarChar(150)
+    price            String   @db.VarChar(20)
+    productId        BigInt   @unique
+    createdAt        DateTime @default(now()) @db.Timestamp(0)
+    updatedAt        DateTime @default(now()) @updatedAt @db.Timestamp(0)
+    Products         Products @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+}
+
+model Users {
+    id           BigInt        @id @default(autoincrement()) @db.UnsignedBigInt
+    username     String        @db.VarChar(30)
+    email        String        @db.VarChar(40)
+    otp          String        @db.VarChar(6)
+    createdAt    DateTime      @default(now()) @db.Timestamp(0)
+    updatedAt    DateTime      @default(now()) @updatedAt @db.Timestamp(0)
+    UserProfiles UserProfiles?
+    WhisesList   WhisesList[]
+    ProductCard  ProductCard[]
+    Invice       Invoice[]
+}
+
+model UserProfiles {
+    id               BigInt          @id @default(autoincrement()) @db.UnsignedBigInt
+    customarName     String          @db.VarChar(50)
+    customarPhone    String          @db.VarChar(15)
+    customarAddress  String          @db.VarChar(100)
+    customarCity     String          @db.VarChar(50)
+    customarPostcode String          @db.VarChar(20)
+    customarState    String          @db.VarChar(20)
+    shippingName     String          @db.VarChar(50)
+    shippingPhone    String          @db.VarChar(15)
+    shippingAddress  String          @db.VarChar(100)
+    shippingCity     String          @db.VarChar(50)
+    shippingPostcode String          @db.VarChar(20)
+    shippingState    String          @db.VarChar(20)
+    userId           BigInt          @unique
+    createdAt        DateTime        @default(now()) @db.Timestamp(0)
+    updatedAt        DateTime        @default(now()) @updatedAt @db.Timestamp(0)
+    Users            Users           @relation(fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+    ProductReview    ProductReview[]
+}
+
+model WhisesList {
+    id        BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+    userId    BigInt
+    productId BigInt
+    createdAt DateTime @default(now()) @db.Timestamp(0)
+    updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+    Users     Users    @relation(fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+    Products  Products @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+}
+
+model ProductCard {
+    id        BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+    size      String   @db.VarChar(10)
+    color     String   @db.VarChar(40)
+    quantity  String   @db.VarChar(40)
+    userId    BigInt
+    productId BigInt
+    Users     Users    @relation(fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+    Products  Products @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+}
+
+enum delivary {
+    Processing
+    On_the_way
+    Completed
+}
+
+model Invoice {
+    id              BigInt           @id @default(autoincrement()) @db.UnsignedBigInt
+    total           String           @db.VarChar(10)
+    vat             String           @db.VarChar(10)
+    payment         String           @db.VarChar(10)
+    customarDetails String           @db.VarChar(100)
+    shippingDetails String           @db.VarChar(100)
+    transactionId   String           @db.VarChar(30)
+    deliveryStatus  delivary
+    userId          BigInt
+    createdAt       DateTime         @default(now()) @db.Timestamp(0)
+    updatedAt       DateTime         @default(now()) @updatedAt @db.Timestamp(0)
+    Users           Users            @relation(fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+    ProductInvoice  ProductInvoice[]
+}
+
+model ProductInvoice {
+    id        BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+    invoiceId BigInt
+    productId BigInt
+    createdAt DateTime @default(now()) @db.Timestamp(0)
+    updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+    Invoice   Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+    Products  Products @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+}
+
+model ProductReview {
+    id           BigInt       @id @default(autoincrement()) @db.UnsignedBigInt
+    rating       String       @db.VarChar(10)
+    description  String       @db.VarChar(1000)
+    productId    BigInt
+    profilesId   BigInt
+    createdAt    DateTime     @default(now()) @db.Timestamp(0)
+    updatedAt    DateTime     @default(now()) @updatedAt @db.Timestamp(0)
+    UserProfiles UserProfiles @relation(fields: [profilesId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+    Products     Products     @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+}
