@@ -1,0 +1,3 @@
+{
+  "extends": ["next/babble","next/core-web-vitals"]
+}
