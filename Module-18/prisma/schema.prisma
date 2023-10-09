@@ -50,7 +50,7 @@ model Product {
   category       Category       @relation(fields: [categoryId], references: [id], onDelete: Restrict, onUpdate: Cascade)
   productDetails ProductDetail?
   ProductSlider  ProductSlider?
-  // WhisesList     WhisesList[]
+  WhisesList     WhisesList[]
   // ProductCard    ProductCard[]
   // ProductInvoice ProductInvoice[]
   // ProductReview  ProductReview[]
@@ -87,7 +87,7 @@ model User {
   createdAt   DateTime     @default(now()) @db.Timestamp(0)
   updatedAt   DateTime     @default(now()) @updatedAt @db.Timestamp(0)
   userProfile UserProfile?
-  // whisesList  WhisesList[]
+  whisesList  WhisesList[]
   // productCard ProductCard[]
   // invice      Invoice[]
 }
@@ -111,4 +111,14 @@ model UserProfile {
   updatedAt        DateTime @default(now()) @updatedAt @db.Timestamp(0)
   user             User     @relation(fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
   // productReview    ProductReview[]
+}
+
+model WhisesList {
+  id        BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  userId    BigInt   @db.UnsignedBigInt
+  productId BigInt   @db.UnsignedBigInt
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 }
