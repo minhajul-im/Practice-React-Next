@@ -80,14 +80,35 @@ model ProductSlider {
 }
 
 model User {
-  id        BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
-  username  String   @unique @db.VarChar(30)
-  email     String   @unique @db.VarChar(40)
-  otp       String   @unique @db.VarChar(6)
-  createdAt DateTime @default(now()) @db.Timestamp(0)
-  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
-  // userProfile UserProfile?
+  id          BigInt       @id @default(autoincrement()) @db.UnsignedBigInt
+  username    String       @unique @db.VarChar(30)
+  email       String       @unique @db.VarChar(40)
+  otp         String       @unique @db.VarChar(6)
+  createdAt   DateTime     @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime     @default(now()) @updatedAt @db.Timestamp(0)
+  userProfile UserProfile?
   // whisesList  WhisesList[]
   // productCard ProductCard[]
   // invice      Invoice[]
+}
+
+model UserProfile {
+  id               BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  customarName     String   @db.VarChar(50)
+  customarPhone    String   @db.VarChar(15)
+  customarAddress  String   @db.VarChar(100)
+  customarCity     String   @db.VarChar(50)
+  customarPostcode String   @db.VarChar(20)
+  customarState    String   @db.VarChar(20)
+  shippingName     String   @db.VarChar(50)
+  shippingPhone    String   @db.VarChar(15)
+  shippingAddress  String   @db.VarChar(100)
+  shippingCity     String   @db.VarChar(50)
+  shippingPostcode String   @db.VarChar(20)
+  shippingState    String   @db.VarChar(20)
+  userId           BigInt   @unique @db.UnsignedBigInt
+  createdAt        DateTime @default(now()) @db.Timestamp(0)
+  updatedAt        DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  user             User     @relation(fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  // productReview    ProductReview[]
 }
