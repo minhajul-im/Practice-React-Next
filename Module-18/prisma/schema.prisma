@@ -6,3 +6,12 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Brand {
+  id         BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  barndName  String   @db.VarChar(40)
+  barndImage String?  @db.VarChar(200)
+  createdAt  DateTime @default(now()) @db.Timestamp(0)
+  updatedAt  DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  // product    Product[]
+}
