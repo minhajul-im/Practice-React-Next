@@ -32,27 +32,27 @@ enum remark {
 }
 
 model Product {
-  id             BigInt         @id @default(autoincrement()) @db.UnsignedBigInt
-  title          String         @db.VarChar(100)
-  description    String         @db.VarChar(220)
-  price          String         @db.VarChar(20)
-  discount       String?        @db.TinyText
-  discountPrice  String?        @db.VarChar(20)
-  image          String         @db.VarChar(200)
-  star           Float?         @db.Double
-  sock           String?        @db.VarChar(20)
+  id             BigInt           @id @default(autoincrement()) @db.UnsignedBigInt
+  title          String           @db.VarChar(100)
+  description    String           @db.VarChar(220)
+  price          String           @db.VarChar(20)
+  discount       String?          @db.TinyText
+  discountPrice  String?          @db.VarChar(20)
+  image          String           @db.VarChar(200)
+  star           Float?           @db.Double
+  sock           String?          @db.VarChar(20)
   remark         remark?
-  brandId        BigInt         @db.UnsignedBigInt
-  categoryId     BigInt         @db.UnsignedBigInt
-  createdAt      DateTime       @default(now()) @db.Timestamp(0)
-  updatedAt      DateTime       @default(now()) @updatedAt @db.Timestamp(0)
-  brand          Brand          @relation(fields: [brandId], references: [id], onDelete: Restrict, onUpdate: Cascade)
-  category       Category       @relation(fields: [categoryId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  brandId        BigInt           @db.UnsignedBigInt
+  categoryId     BigInt           @db.UnsignedBigInt
+  createdAt      DateTime         @default(now()) @db.Timestamp(0)
+  updatedAt      DateTime         @default(now()) @updatedAt @db.Timestamp(0)
+  brand          Brand            @relation(fields: [brandId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  category       Category         @relation(fields: [categoryId], references: [id], onDelete: Restrict, onUpdate: Cascade)
   productDetails ProductDetail?
   ProductSlider  ProductSlider?
   WhisesList     WhisesList[]
   ProductCard    ProductCard[]
-  // ProductInvoice ProductInvoice[]
+  ProductInvoice ProductInvoice[]
   // ProductReview  ProductReview[]
 }
 
@@ -141,17 +141,27 @@ enum delivary {
 }
 
 model Invoice {
-  id             BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
-  total          String   @db.VarChar(10)
-  vat            String   @db.VarChar(10)
-  payment        String   @db.VarChar(10)
-  customarDetail String   @db.VarChar(100)
-  shippingDetail String   @db.VarChar(100)
-  transactionId  String   @db.VarChar(30)
+  id             BigInt           @id @default(autoincrement()) @db.UnsignedBigInt
+  total          String           @db.VarChar(10)
+  vat            String           @db.VarChar(10)
+  payment        String           @db.VarChar(10)
+  customarDetail String           @db.VarChar(100)
+  shippingDetail String           @db.VarChar(100)
+  transactionId  String           @db.VarChar(30)
   deliveryStatus delivary
-  userId         BigInt   @db.UnsignedBigInt
-  createdAt      DateTime @default(now()) @db.Timestamp(0)
-  updatedAt      DateTime @default(now()) @updatedAt @db.Timestamp(0)
-  user           User     @relation(fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
-  // ProductInvoice ProductInvoice[]
+  userId         BigInt           @db.UnsignedBigInt
+  createdAt      DateTime         @default(now()) @db.Timestamp(0)
+  updatedAt      DateTime         @default(now()) @updatedAt @db.Timestamp(0)
+  user           User             @relation(fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  ProductInvoice ProductInvoice[]
+}
+
+model ProductInvoice {
+  id        BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  invoiceId BigInt   @db.UnsignedBigInt
+  productId BigInt   @db.UnsignedBigInt
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  invoice   Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 }
