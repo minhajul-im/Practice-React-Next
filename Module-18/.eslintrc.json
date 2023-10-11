@@ -1,3 +1,1 @@
-{
-  "extends": ["next/babble", "next/core-web-vitals"]
-}
+{ "extends": ["next/babble", "next/core-web-vitals"] }
