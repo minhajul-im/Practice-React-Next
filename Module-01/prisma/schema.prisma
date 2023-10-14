@@ -32,26 +32,38 @@ enum remark {
 }
 
 model Product {
-  id            BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
-  title         String   @db.VarChar(100)
-  description   String   @db.VarChar(220)
-  price         String   @db.VarChar(20)
-  discount      String?  @db.TinyText
-  discountPrice String?  @db.VarChar(20)
-  image         String   @db.VarChar(200)
-  star          Float?   @db.Double
-  sock          String?  @db.VarChar(20)
-  remark        remark?
-  brandId       BigInt   @db.UnsignedBigInt
-  categoryId    BigInt   @db.UnsignedBigInt
-  createdAt     DateTime @default(now()) @db.Timestamp(0)
-  updatedAt     DateTime @default(now()) @updatedAt @db.Timestamp(0)
-  brand         Brand    @relation(fields: [brandId], references: [id], onDelete: Restrict, onUpdate: Cascade)
-  category      Category @relation(fields: [categoryId], references: [id], onDelete: Restrict, onUpdate: Cascade)
-  // productDetails ProductDetail?
+  id             BigInt         @id @default(autoincrement()) @db.UnsignedBigInt
+  title          String         @db.VarChar(100)
+  description    String         @db.VarChar(220)
+  price          String         @db.VarChar(20)
+  discount       String?        @db.TinyText
+  discountPrice  String?        @db.VarChar(20)
+  image          String         @db.VarChar(200)
+  star           Float?         @db.Double
+  sock           String?        @db.VarChar(20)
+  remark         remark?
+  brandId        BigInt         @db.UnsignedBigInt
+  categoryId     BigInt         @db.UnsignedBigInt
+  createdAt      DateTime       @default(now()) @db.Timestamp(0)
+  updatedAt      DateTime       @default(now()) @updatedAt @db.Timestamp(0)
+  brand          Brand          @relation(fields: [brandId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  category       Category       @relation(fields: [categoryId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  productDetails ProductDetail?
   // ProductSlider  ProductSlider?
   // WhisesList     WhisesList[]
   // ProductCard    ProductCard[]
   // ProductInvoice ProductInvoice[]
   // ProductReview  ProductReview[]
+}
+
+model ProductDetail {
+  id        BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  image1    String   @db.VarChar(200)
+  image2    String   @db.VarChar(200)
+  image3    String   @db.VarChar(200)
+  image4    String   @db.VarChar(200)
+  productId BigInt   @unique @db.UnsignedBigInt
+  product   Product  @relation(fields: [productId], references: [id])
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }
