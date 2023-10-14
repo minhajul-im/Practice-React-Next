@@ -8,19 +8,50 @@ datasource db {
 }
 
 model Brand {
-  id         BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
-  barndName  String   @db.VarChar(40)
-  barndImage String?  @db.VarChar(200)
-  createdAt  DateTime @default(now()) @db.Timestamp(0)
-  updatedAt  DateTime @default(now()) @updatedAt @db.Timestamp(0)
-  // product    Product[]
+  id         BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  barndName  String    @db.VarChar(40)
+  barndImage String?   @db.VarChar(200)
+  createdAt  DateTime  @default(now()) @db.Timestamp(0)
+  updatedAt  DateTime  @default(now()) @updatedAt @db.Timestamp(0)
+  product    Product[]
 }
 
 model Category {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  categoryName  String    @db.VarChar(50)
+  categoryImage String    @db.VarChar(200)
+  createdAt     DateTime  @default(now()) @db.Timestamp(0)
+  updatedAt     DateTime  @default(now()) @updatedAt @db.Timestamp(0)
+  product       Product[]
+}
+
+enum remark {
+  new
+  trending
+  popular
+}
+
+model Product {
   id            BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
-  categoryName  String   @db.VarChar(50)
-  categoryImage String   @db.VarChar(200)
+  title         String   @db.VarChar(100)
+  description   String   @db.VarChar(220)
+  price         String   @db.VarChar(20)
+  discount      String?  @db.TinyText
+  discountPrice String?  @db.VarChar(20)
+  image         String   @db.VarChar(200)
+  star          Float?   @db.Double
+  sock          String?  @db.VarChar(20)
+  remark        remark?
+  brandId       BigInt   @db.UnsignedBigInt
+  categoryId    BigInt   @db.UnsignedBigInt
   createdAt     DateTime @default(now()) @db.Timestamp(0)
   updatedAt     DateTime @default(now()) @updatedAt @db.Timestamp(0)
-  // product       Product[]
+  brand         Brand    @relation(fields: [brandId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  category      Category @relation(fields: [categoryId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  // productDetails ProductDetail?
+  // ProductSlider  ProductSlider?
+  // WhisesList     WhisesList[]
+  // ProductCard    ProductCard[]
+  // ProductInvoice ProductInvoice[]
+  // ProductReview  ProductReview[]
 }
