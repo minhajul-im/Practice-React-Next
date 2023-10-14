@@ -89,7 +89,7 @@ model User {
   userProfile UserProfile?
   whisesList  WhisesList[]
   productCard ProductCard[]
-  // invice      Invoice[]
+  invice      Invoice[]
 }
 
 model UserProfile {
@@ -132,4 +132,26 @@ model ProductCard {
   productId BigInt  @db.UnsignedBigInt
   user      User    @relation(fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
   product   Product @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+}
+
+enum delivary {
+  Processing
+  On_the_way
+  Completed
+}
+
+model Invoice {
+  id             BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  total          String   @db.VarChar(10)
+  vat            String   @db.VarChar(10)
+  payment        String   @db.VarChar(10)
+  customarDetail String   @db.VarChar(100)
+  shippingDetail String   @db.VarChar(100)
+  transactionId  String   @db.VarChar(30)
+  deliveryStatus delivary
+  userId         BigInt   @db.UnsignedBigInt
+  createdAt      DateTime @default(now()) @db.Timestamp(0)
+  updatedAt      DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  user           User     @relation(fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  // ProductInvoice ProductInvoice[]
 }
