@@ -51,7 +51,7 @@ model Product {
   productDetails ProductDetail?
   ProductSlider  ProductSlider?
   WhisesList     WhisesList[]
-  // ProductCard    ProductCard[]
+  ProductCard    ProductCard[]
   // ProductInvoice ProductInvoice[]
   // ProductReview  ProductReview[]
 }
@@ -80,15 +80,15 @@ model ProductSlider {
 }
 
 model User {
-  id          BigInt       @id @default(autoincrement()) @db.UnsignedBigInt
-  username    String       @unique @db.VarChar(30)
-  email       String       @unique @db.VarChar(40)
-  otp         String       @unique @db.VarChar(6)
-  createdAt   DateTime     @default(now()) @db.Timestamp(0)
-  updatedAt   DateTime     @default(now()) @updatedAt @db.Timestamp(0)
+  id          BigInt        @id @default(autoincrement()) @db.UnsignedBigInt
+  username    String        @unique @db.VarChar(30)
+  email       String        @unique @db.VarChar(40)
+  otp         String        @unique @db.VarChar(6)
+  createdAt   DateTime      @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime      @default(now()) @updatedAt @db.Timestamp(0)
   userProfile UserProfile?
   whisesList  WhisesList[]
-  // productCard ProductCard[]
+  productCard ProductCard[]
   // invice      Invoice[]
 }
 
@@ -121,4 +121,15 @@ model WhisesList {
   updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
   user      User     @relation(fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
   product   Product  @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+}
+
+model ProductCard {
+  id        BigInt  @id @default(autoincrement()) @db.UnsignedBigInt
+  size      String  @db.VarChar(10)
+  color     String  @db.VarChar(40)
+  quantity  String  @db.VarChar(40)
+  userId    BigInt  @db.UnsignedBigInt
+  productId BigInt  @db.UnsignedBigInt
+  user      User    @relation(fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  product   Product @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 }
