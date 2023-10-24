@@ -6,12 +6,14 @@ import Contact from "./Contact";
 import Header from "./components/Header";
 import Product from "./components/Product";
 import ErrorPage from "./components/ErrorPage";
+import Footer from "./components/Footer";
 
 const AppLayout = () => {
   return (
     <>
       <Header />
       <Outlet />
+      <Footer />
     </>
   );
 };
