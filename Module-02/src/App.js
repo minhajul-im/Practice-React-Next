@@ -1,9 +1,12 @@
 import ReactDOM from "react-dom/client";
+import Header from "./components/Header";
+import Restaurant from "./pages/Restaurant";
 
 const App = () => {
   return (
     <>
-      <h1>Hey There, How's it going?</h1>
+      <Header />
+      {/* <Restaurant /> */}
     </>
   );
 };
