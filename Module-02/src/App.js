@@ -6,6 +6,7 @@ import Restaurant from "./pages/Restaurant";
 import Menu from "./pages/Menu";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Error from "./pages/Error";
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
     ],
+    errorElement: <Error />,
   },
 ]);
 
