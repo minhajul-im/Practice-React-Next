@@ -1,50 +1,57 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { SWIGGY_LOGO } from "../utils/allLinks";
 
 const Header = () => {
   const [btnText, setBtnText] = useState("Login");
   const handleOnClick = () => {
-    btnText === "Login" ? setBtnText("Logout") : setBtnText("Login");
+    if (btnText === "Login") {
+      alert("Logout Successful!");
+      setBtnText("Logout");
+    } else {
+      alert("Login Successful!");
+      setBtnText("Login");
+    }
   };
   return (
     <header className="bg-amber-600">
       <nav className="w-5/6 mx-auto flex justify-between items-center py-1">
-        <a href="/">
+        <Link to="/">
           <img className="h-10" src={SWIGGY_LOGO} alt="Swiggy_Logo" />
-        </a>
+        </Link>
 
         <ul className="flex gap-8 items-center">
           <li>
-            <a
+            <Link
               className="no-underline text-white font-semibold hover:underline"
-              href="/"
+              to="/"
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               className="no-underline text-white font-semibold hover:underline"
-              href="/"
+              to="/menu"
             >
-              Home
-            </a>
+              Menu
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               className="no-underline text-white font-semibold hover:underline"
-              href="/"
+              to="/about"
             >
-              Home
-            </a>
+              About
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               className="no-underline text-white font-semibold hover:underline"
-              href="/"
+              to="/contact"
             >
-              Home
-            </a>
+              Contact
+            </Link>
           </li>
           <li>
             <button
