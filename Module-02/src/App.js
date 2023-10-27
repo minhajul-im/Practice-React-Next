@@ -7,6 +7,7 @@ import Menu from "./pages/Menu";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Error from "./pages/Error";
+import DetailsRestaurant from "./pages/DetailsRestaurant";
 
 const App = () => {
   return (
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/restaurant/:resId",
+        element: <DetailsRestaurant />,
       },
     ],
     errorElement: <Error />,

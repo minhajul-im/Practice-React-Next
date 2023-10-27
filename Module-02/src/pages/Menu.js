@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import { SWIGGY_MENU } from "../utils/allLinks";
+
 const Menu = () => {
   return (
     <div>
