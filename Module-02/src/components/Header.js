@@ -1,18 +1,10 @@
-import { useState } from "react";
+import header from "../utils/header";
 import { Link } from "react-router-dom";
 import { SWIGGY_LOGO } from "../utils/allLinks";
 
 const Header = () => {
-  const [btnText, setBtnText] = useState("Login");
-  const handleOnClick = () => {
-    if (btnText === "Login") {
-      alert("Logout Successful!");
-      setBtnText("Logout");
-    } else {
-      alert("Login Successful!");
-      setBtnText("Login");
-    }
-  };
+  const { btnText, handleOnClick } = header();
+
   return (
     <header className="bg-amber-600">
       <nav className="w-5/6 mx-auto flex justify-between items-center py-1">
