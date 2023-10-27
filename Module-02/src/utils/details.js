@@ -5,7 +5,7 @@ const detailsFunc = () => {
   const { resId } = useParams();
 
   const [menu, setMenu] = useState(null);
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(null);
 
   useEffect(() => {
     fetchMenu();
@@ -18,6 +18,7 @@ const detailsFunc = () => {
     const jsonData = await response.json();
 
     setMenu(jsonData?.data?.cards[0]?.card?.card?.info);
+
     setList(
       jsonData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
         ?.card?.card?.itemCards
