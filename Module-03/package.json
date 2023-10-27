@@ -1,0 +1,22 @@
+{
+  "name": "module-03",
+  "version": "1.0.0",
+  "description": "hey i'm minhaj",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel index.html",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "minhaj muhammad",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.10.1",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.17.0"
+  }
+}
