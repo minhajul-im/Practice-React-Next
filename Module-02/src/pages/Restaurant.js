@@ -1,40 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { SWIGGY_API, SWIGGY_IMG } from "../utils/allLinks";
+import restaurant from "../utils/restaurant";
+import { SWIGGY_IMG } from "../utils/allLinks";
 
 const Restaurant = () => {
-  const [input, setInput] = useState("");
-  const [resData, setResData] = useState([]);
-  const [searchResData, setSearchResData] = useState([]);
-
-  useEffect(() => {
-    fetchApiSwiggy();
-  }, []);
-
-  const fetchApiSwiggy = async () => {
-    const response = await fetch(SWIGGY_API);
-    const json = await response.json();
-    const restaurants =
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-    setResData(restaurants);
-    setSearchResData(restaurants);
-  };
-
-  const handleOnClick = () => {
-    const sort = searchResData.filter((item) =>
-      item?.info?.name.includes(input)
-    );
-    setResData(sort);
-    setInput("");
-  };
-  const handleOnChange = (e) => {
-    setInput(e.target.value);
-  };
+  const { input, resData, handleOnChange, handleOnClick } = restaurant();
 
   return (
     <main className="w-5/6 mx-auto">
       <section className="my-8 text-end">
         <input
+          value={input}
           onChange={handleOnChange}
           className="outline-none border border-r-0 rounded rounded-r-none border-amber-600 py-1
           px-2 text-amber-700 font-semibold"
