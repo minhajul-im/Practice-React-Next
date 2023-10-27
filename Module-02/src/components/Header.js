@@ -20,48 +20,42 @@ const Header = () => {
           <img className="h-10" src={SWIGGY_LOGO} alt="Swiggy_Logo" />
         </Link>
 
-        <ul className="flex gap-8 items-center">
-          <li>
-            <Link
-              className="no-underline text-white font-semibold hover:underline"
-              to="/"
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="no-underline text-white font-semibold hover:underline"
-              to="/menu"
-            >
-              Menu
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="no-underline text-white font-semibold hover:underline"
-              to="/about"
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="no-underline text-white font-semibold hover:underline"
-              to="/contact"
-            >
-              Contact
-            </Link>
-          </li>
-          <li>
-            <button
-              onClick={handleOnClick}
-              className="py-1 px-4 border border-white text-white bg-amber-600 font-semibold rounded hover:bg-white hover:text-amber-600 duration-75"
-            >
-              {btnText}
-            </button>
-          </li>
-        </ul>
+        <section className="flex gap-8 items-center">
+          <Link
+            className="no-underline text-white font-semibold hover:underline"
+            to="/"
+          >
+            Home
+          </Link>
+
+          <Link
+            className="no-underline text-white font-semibold hover:underline"
+            to="/menu"
+          >
+            Menu
+          </Link>
+
+          <Link
+            className="no-underline text-white font-semibold hover:underline"
+            to="/about"
+          >
+            About
+          </Link>
+
+          <Link
+            className="no-underline text-white font-semibold hover:underline"
+            to="/contact"
+          >
+            Contact
+          </Link>
+
+          <button
+            onClick={handleOnClick}
+            className="py-1 px-4 border border-white text-white bg-amber-600 font-semibold rounded hover:bg-white hover:text-amber-600 duration-75"
+          >
+            {btnText}
+          </button>
+        </section>
       </nav>
     </header>
   );
