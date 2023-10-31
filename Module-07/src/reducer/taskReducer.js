@@ -97,6 +97,13 @@ export const taskReducer = (state, action) => {
       };
     }
 
+    case "DELETE_ALL_TASK": {
+      return {
+        ...state,
+        tasks: [],
+      };
+    }
+
     default:
       throw Error(`It's an invalid ${action.type}!`);
   }
