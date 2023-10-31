@@ -90,6 +90,13 @@ export const taskReducer = (state, action) => {
       };
     }
 
+    case "DELETE_TASK": {
+      return {
+        ...state,
+        tasks: state.tasks.filter((task) => task.id !== action.taskId),
+      };
+    }
+
     default:
       throw Error(`It's an invalid ${action.type}!`);
   }
