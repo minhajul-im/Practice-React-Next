@@ -1,7 +1,7 @@
-import Navbar from "../components/header/Navbar";
 import Hero from "../components/header/Hero";
-import TaskContainer from "../components/main/TaskContainer";
+import Navbar from "../components/header/Navbar";
 import Footer from "../components/footer/Footer";
+import TaskContainer from "../components/main/TaskContainer";
 
 export default function App() {
   return (

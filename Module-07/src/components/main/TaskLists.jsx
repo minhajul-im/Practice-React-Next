@@ -1,6 +1,6 @@
-import { useTaskContext } from "../../contexts/TaskContext";
-
 import Task from "./Task";
+
+import { useTaskContext } from "../../contexts/TaskContext";
 
 export default function TaskLists() {
   const { state } = useTaskContext();

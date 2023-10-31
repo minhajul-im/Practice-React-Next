@@ -1,17 +1,12 @@
 import { useState } from "react";
+
+import { addTask } from "../../db/db";
 import { useTaskContext } from "../../contexts/TaskContext";
-const initials = {
-  title: "",
-  description: "",
-  tags: [],
-  priority: "",
-  isFavorite: false,
-};
 
 export default function AddAndEditTask() {
   const { state, dispatch } = useTaskContext();
 
-  const [task, setTask] = useState(state.editTask || initials);
+  const [task, setTask] = useState(state.editTask || addTask);
 
   const isEdit = Object.is(state.editTask, null);
 

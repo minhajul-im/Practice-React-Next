@@ -2,11 +2,13 @@ import { useReducer } from "react";
 
 import TaskTable from "./TaskTable";
 import TaskManagementToolbar from "./TaskManagementToolbar";
-import { initial, taskReducer } from "../../reducer/taskReducer";
+
+import { initialValue } from "../../db/db";
+import { taskReducer } from "../../reducer/taskReducer";
 import { TaskContext } from "../../contexts/TaskContext";
 
 export default function TaskContainer() {
-  const [state, dispatch] = useReducer(taskReducer, initial);
+  const [state, dispatch] = useReducer(taskReducer, initialValue);
 
   return (
     <section className='container mx-auto mb-20 '>

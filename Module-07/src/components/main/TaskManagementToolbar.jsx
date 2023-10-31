@@ -1,8 +1,8 @@
 import Search from "./Search";
 import Button from "./Button";
+import AddAndEditTask from "./AddAndEditTask";
 
 import { useTaskContext } from "../../contexts/TaskContext";
-import AddAndEditTask from "./AddAndEditTask";
 
 export default function TaskManagementToolbar() {
   const { state, dispatch } = useTaskContext();
