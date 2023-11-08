@@ -1,10 +1,13 @@
-import React from "react";
-import useSwiggyApi from "../hooks/useSwiggyApi";
+import { Link } from "react-router-dom";
 import CartMenu from "../components/CartMenu";
 import CartShimmer from "../shimmer/CartShimmer";
+import TopCartMenu from "../components/TopCartMenu";
+import useSwiggyFoodMenu from "../hooks/useSwiggyFoodMenu";
 
 const Menu = () => {
-  const { restaurantData } = useSwiggyApi();
+  const { restaurantData } = useSwiggyFoodMenu();
+
+  const TopCartMenus = TopCartMenu(CartMenu);
 
   if (restaurantData === null) return <CartShimmer />;
 
@@ -13,23 +16,17 @@ const Menu = () => {
   //       ?.info
   //   );
   return (
-    <main className="">
-      <section className="my-10 flex justify-end">
-        <input
-          className="border border-amber-600 py-1 px-2 rounded outline-none border-r-0 rounded-r-none"
-          type="text"
-        />
-        <button className="text-white bg-amber-600 py-2 px-6 border-s-0 rounded rounded-s-none font-semibold">
-          Search
-        </button>
-      </section>
-
+    <main className="my-10">
       <section className="grid grid-cols-4 gap-6">
         {restaurantData[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants.map(
           (item) => (
-            <div key={item?.info?.id}>
-              <CartMenu item={item} />
-            </div>
+            <Link to={`/restaurants/${item?.info?.id}`} key={item?.info?.id}>
+              {item?.info?.avgRating >= 4.5 ? (
+                <TopCartMenus item={item} />
+              ) : (
+                <CartMenu item={item} />
+              )}
+            </Link>
           )
         )}
       </section>

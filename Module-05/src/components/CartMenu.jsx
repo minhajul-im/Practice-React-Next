@@ -1,10 +1,11 @@
 import { SWIGGY_FOOD_IMG } from "../links/constant";
 
 const CartMenu = ({ item }) => {
+  console.log(item);
   return (
     <div className="shadow-lg rounded bg-white">
       <div>
-        <h2 className="absolute text-2xl font-extrabold text-white mt-[190px] ms-4">
+        <h2 className="cartMenuPrice absolute text-2xl font-extrabold text-white mt-[190px] ms-4">
           {item?.info?.aggregatedDiscountInfoV3?.header}&#160;
           {item?.info?.aggregatedDiscountInfoV3?.subHeader}
         </h2>
@@ -16,9 +17,10 @@ const CartMenu = ({ item }) => {
       </div>
       <div className="py-3 ps-2">
         <h3 className="text-[1.5rem] font-bold py-1">
-          {item?.info?.name.split(" ").length < 4
+          {item?.info?.name.length < 25
             ? item?.info?.name
-            : item?.info?.name.split(" ").slice(0, 4).join(" ") + " ..."}
+            : item?.info?.name.slice(0, 25).split(" ").slice(0, 4).join(" ") +
+              "..."}
         </h3>
         <h5 className="font-bold text-xl">
           <span className="text-green-600">✪</span>&#160;

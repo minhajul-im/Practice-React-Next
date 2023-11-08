@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { SWIGGY_API_BANGALORE } from "../links/constant";
 
-const useSwiggyApi = () => {
+const useSwiggyFoodMenu = () => {
   const [restaurantData, setRestaurantData] = useState(null);
 
   useEffect(() => {
@@ -19,4 +19,4 @@ const useSwiggyApi = () => {
   };
 };
 
-export default useSwiggyApi;
+export default useSwiggyFoodMenu;
