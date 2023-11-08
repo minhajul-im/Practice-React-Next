@@ -44,6 +44,13 @@ export const taskReducer = (state, action) => {
         };
       }
     }
+    case "EDIT_TASK": {
+      return {
+        ...state,
+        show: true,
+        editTask: action.task,
+      };
+    }
 
     default:
       throw Error(`It's an invalid ${action.type}!`);
