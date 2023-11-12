@@ -3,16 +3,18 @@ import { createBrowserRouter, Outlet } from "react-router-dom";
 import Menu from "./pages/Menu";
 import ErrorPage from "./pages/ErrorPage";
 import Restaurants from "./pages/Restaurants";
+import Header from "./components/header/Header";
+import Cart from "./pages/Cart";
 
 const App = () => {
   return (
-    <main className="w-5/6 mx-auto">
-      <h1 className="text-center text-amber-600 text-4xl font-bold py-2">
-        Restaurants with online food delivery in Bangalore!
-      </h1>
+    <>
+      <Header />
 
-      <Outlet />
-    </main>
+      <section className="w-5/6 mx-auto">
+        <Outlet />
+      </section>
+    </>
   );
 };
 
@@ -28,6 +30,10 @@ const RouterApp = createBrowserRouter([
       {
         path: "/restaurants/:id",
         element: <Restaurants />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <ErrorPage />,
