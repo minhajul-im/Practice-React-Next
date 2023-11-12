@@ -1,6 +1,14 @@
+import { useDispatch } from "react-redux";
 import { SWIGGY_RELATED_FOOD_IMG } from "../../links/constant";
+import { addItem } from "../../redux/cart/cartSlice";
 
 const RelatedFoodItem = ({ items }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (item) => {
+    dispatch(addItem(item));
+  };
+
   return (
     <section className="mx-6">
       {items?.card?.card?.itemCards.map((item) => (
@@ -21,7 +29,10 @@ const RelatedFoodItem = ({ items }) => {
             </div>
             <div className="w-3/12 flex justify-end">
               <div>
-                <button className="py-1 px-4 text-white bg-amber-600 font-semibold rounded  duration-75 absolute mt-24 ms-11">
+                <button
+                  onClick={() => handleAddToCart(item)}
+                  className="py-1 px-4 text-white bg-amber-600 font-semibold rounded  duration-75 absolute mt-24 ms-11"
+                >
                   Add+
                 </button>
                 <img

@@ -1,20 +1,23 @@
+import { Provider } from "react-redux";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 
+import Cart from "./pages/Cart";
 import Menu from "./pages/Menu";
+import appStore from "./redux/appStore";
 import ErrorPage from "./pages/ErrorPage";
 import Restaurants from "./pages/Restaurants";
 import Header from "./components/header/Header";
-import Cart from "./pages/Cart";
 
 const App = () => {
   return (
-    <>
-      <Header />
-
-      <section className="w-5/6 mx-auto">
-        <Outlet />
-      </section>
-    </>
+    <Provider store={appStore}>
+      <>
+        <Header />
+        <section className="w-5/6 mx-auto">
+          <Outlet />
+        </section>
+      </>
+    </Provider>
   );
 };
 

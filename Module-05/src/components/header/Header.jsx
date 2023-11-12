@@ -1,6 +1,11 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  // subscribing to the store using the selector
+  const cartItems = useSelector((store) => store.cartFood.items);
+  // console.log(cartItems);
+
   return (
     <nav className="w-5/6 mx-auto flex justify-between items-center border-b border-b-gray-300">
       <Link to={"/"}>
@@ -16,7 +21,7 @@ const Header = () => {
         <li className="list-none">🎁 offers</li>
         <li className="list-none">
           <Link to={"/cart"} className="no-underline hover:text-amber-600">
-            🛒 cart
+            🛒({cartItems.length}) cart
           </Link>
         </li>
         <li className="list-none">☃ sing in</li>
