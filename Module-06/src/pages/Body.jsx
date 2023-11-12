@@ -26,9 +26,12 @@ const dataSet = [
 ];
 
 const Body = () => {
-  const [data, setData] = useState(0);
-
   const { username } = useContext(ContextData);
+  const [data, setData] = useState(new Array(dataSet.length).fill(false));
+
+  const handleToggle = (index) => {
+    setData((pre) => pre.map((value, i) => (i === index ? !value : value)));
+  };
 
   return (
     <div style={{ textAlign: "center" }}>
@@ -37,8 +40,8 @@ const Body = () => {
         <Data
           key={item?.id}
           item={item}
-          state={data === i ? true : false}
-          setData={() => setData(i)}
+          active={data[i]}
+          handleToggle={() => handleToggle(i)}
         />
       ))}
     </div>
