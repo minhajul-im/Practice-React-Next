@@ -1,7 +1,7 @@
-import FoodDetails from "../components/FoodDetails";
+import FoodDetails from "../components/details/FoodDetails";
 import DetailsShimmer from "../shimmer/DetailsShimmer";
 import useSwiggyFoodDetails from "../hooks/useSwiggyFoodDetails";
-import RelatedFoodDetails from "../components/RelatedFoodDetails";
+import RelatedFoodDetails from "../components/details/RelatedFoodDetails";
 
 const Restaurants = () => {
   const { foodDetails } = useSwiggyFoodDetails();

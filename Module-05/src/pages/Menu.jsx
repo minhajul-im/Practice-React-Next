@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import CartMenu from "../components/CartMenu";
+import CartMenu from "../components/menu/CartMenu";
 import CartShimmer from "../shimmer/CartShimmer";
-import TopCartMenu from "../components/TopCartMenu";
+import TopCartMenu from "../components/menu/TopCartMenu";
 import useSwiggyFoodMenu from "../hooks/useSwiggyFoodMenu";
 
 const Menu = () => {
@@ -11,10 +11,6 @@ const Menu = () => {
 
   if (restaurantData === null) return <CartShimmer />;
 
-  //   console.log(
-  //     restaurantData[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]
-  //       ?.info
-  //   );
   return (
     <main className="my-10">
       <section className="grid grid-cols-4 gap-6">

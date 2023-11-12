@@ -1,5 +1,5 @@
 import RelatedFoodItem from "./RelatedFoodItem";
-import useCollapseAndExpand from "../hooks/useCollapseAndExpand";
+import useCollapseAndExpand from "../../hooks/useCollapseAndExpand";
 
 const RelatedFoodDetails = ({ items }) => {
   const { handleOnClick, collapseAndExpand } = useCollapseAndExpand();

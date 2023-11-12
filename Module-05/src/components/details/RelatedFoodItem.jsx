@@ -1,4 +1,4 @@
-import { SWIGGY_RELATED_FOOD_IMG } from "../links/constant";
+import { SWIGGY_RELATED_FOOD_IMG } from "../../links/constant";
 
 const RelatedFoodItem = ({ items }) => {
   return (

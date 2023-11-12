@@ -1,4 +1,4 @@
-import { SWIGGY_FOOD_IMG } from "../links/constant";
+import { SWIGGY_FOOD_IMG } from "../../links/constant";
 
 const CartMenu = ({ item }) => {
   console.log(item);
