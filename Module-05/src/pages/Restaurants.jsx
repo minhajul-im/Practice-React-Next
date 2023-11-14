@@ -1,5 +1,5 @@
-import FoodDetails from "../components/details/FoodDetails";
 import DetailsShimmer from "../shimmer/DetailsShimmer";
+import FoodDetails from "../components/details/FoodDetails";
 import useSwiggyFoodDetails from "../hooks/useSwiggyFoodDetails";
 import RelatedFoodDetails from "../components/details/RelatedFoodDetails";
 

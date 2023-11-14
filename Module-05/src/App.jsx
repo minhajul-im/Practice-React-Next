@@ -11,12 +11,10 @@ import Header from "./components/header/Header";
 const App = () => {
   return (
     <Provider store={appStore}>
-      <>
-        <Header />
-        <section className="w-5/6 mx-auto">
-          <Outlet />
-        </section>
-      </>
+      <Header />
+      <section className="w-5/6 mx-auto">
+        <Outlet />
+      </section>
     </Provider>
   );
 };

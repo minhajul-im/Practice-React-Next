@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { SWIGGY_RELATED_FOOD_IMG } from "../../links/constant";
 import { addItem } from "../../redux/cart/cartSlice";
+import { SWIGGY_RELATED_FOOD_IMG } from "../../links/constant";
 
 const RelatedFoodItem = ({ items }) => {
   const dispatch = useDispatch();

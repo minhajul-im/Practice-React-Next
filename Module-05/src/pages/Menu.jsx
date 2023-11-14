@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import CartMenu from "../components/menu/CartMenu";
 import CartShimmer from "../shimmer/CartShimmer";
+import CartMenu from "../components/menu/CartMenu";
 import TopCartMenu from "../components/menu/TopCartMenu";
 import useSwiggyFoodMenu from "../hooks/useSwiggyFoodMenu";
 
