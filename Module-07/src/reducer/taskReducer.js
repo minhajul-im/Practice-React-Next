@@ -80,6 +80,16 @@ export const taskReducer = (state, action) => {
       };
     }
 
+    case "SEARCH_TASK": {
+      return {
+        ...state,
+        filteredTasks: state.tasks.filter((task) =>
+          task.title.toLowerCase().includes(action.text.toLowerCase())
+        ),
+        query: action.text,
+      };
+    }
+
     default:
       throw Error(`It's an invalid ${action.type}!`);
   }
