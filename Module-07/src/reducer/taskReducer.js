@@ -65,6 +65,14 @@ export const taskReducer = (state, action) => {
       };
     }
 
+    case "OPEN_MODAL": {
+      return {
+        ...state,
+        show: true,
+        editTask: null,
+      };
+    }
+
     default:
       throw Error(`It's an invalid ${action.type}!`);
   }
