@@ -4,7 +4,7 @@ const CartMenu = ({ item }) => {
   return (
     <div className="shadow-lg rounded bg-white">
       <div>
-        <h2 className="cartMenuPrice absolute text-2xl font-extrabold text-white mt-[190px] ms-4">
+        <h2 className="cartMenuPrice absolute text-xl font-extrabold text-white mt-[190px] ms-4">
           {item?.info?.aggregatedDiscountInfoV3?.header}&#160;
           {item?.info?.aggregatedDiscountInfoV3?.subHeader}
         </h2>
