@@ -52,6 +52,19 @@ export const taskReducer = (state, action) => {
       };
     }
 
+    case "TOGGLE": {
+      return {
+        ...state,
+        tasks: state.tasks.map((task) => {
+          if (task.id === action.taskId) {
+            return { ...task, isFovarite: !task.isFovarite };
+          } else {
+            return task;
+          }
+        }),
+      };
+    }
+
     default:
       throw Error(`It's an invalid ${action.type}!`);
   }
