@@ -73,6 +73,13 @@ export const taskReducer = (state, action) => {
       };
     }
 
+    case "CLOSE_MODAL": {
+      return {
+        ...state,
+        show: false,
+      };
+    }
+
     default:
       throw Error(`It's an invalid ${action.type}!`);
   }
