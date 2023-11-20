@@ -8,12 +8,6 @@ const initialState = {
   error: "",
 };
 
-// export const fetchVideos = createAsyncThunk("videos/fetchVideos", async () => {
-//   const videos = await fetch("http://localhost:9000/videos");
-//   const jsonData = await videos.json();
-//   return jsonData;
-// });
-
 export const fetchVideos = createAsyncThunk("videos/fetchVideos", async () => {
   const videos = await getVideos();
   return videos;
@@ -35,7 +29,6 @@ const videoSlice = createSlice({
       })
       .addCase(fetchVideos.rejected, (state, action) => {
         state.isLoad = false;
-
         state.isError = true;
         state.videos = [];
         state.error = action.error.message;
