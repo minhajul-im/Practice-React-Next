@@ -3,14 +3,16 @@ import Watch from "./pages/Watch";
 import Home from "./pages/Home";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
+import { Provider } from "react-redux";
+import store from "./app/store";
 
 const App = () => {
   return (
-    <main className="">
+    <Provider store={store}>
       <Navbar />
       <Outlet />
       <Footer />
-    </main>
+    </Provider>
   );
 };
 
