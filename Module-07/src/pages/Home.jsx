@@ -1,3 +1,9 @@
+import VideoItems from "../components/homeVideos/VideoItems";
+
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <>
+      <VideoItems />
+    </>
+  );
 }
