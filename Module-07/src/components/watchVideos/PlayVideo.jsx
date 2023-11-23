@@ -3,30 +3,29 @@ import LikeUnlike from "./LikeUnlike";
 
 export default function PlayVideo() {
   return (
-    <div class="col-span-full w-full space-y-8 lg:col-span-2">
+    <div className="col-span-full w-full space-y-8 lg:col-span-2">
       <iframe
         width="100%"
-        class="aspect-video"
+        className="aspect-video"
         src="https://www.youtube-nocookie.com/embed/6O4s7v28nlw"
         title="Some video title"
-        frameborder=""
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
+        allowFullScreen
       ></iframe>
 
       <>
-        <h1 class="text-lg font-semibold tracking-tight text-slate-800">
+        <h1 className="text-lg font-semibold tracking-tight text-slate-800">
           Some video title
         </h1>
-        <div class="pb-4 flex items-center space-between border-b">
-          <h2 class="text-sm leading-[1.7142857] text-slate-600 w-full">
+        <div className="pb-4 flex items-center space-between border-b">
+          <h2 className="text-sm leading-[1.7142857] text-slate-600 w-full">
             Uploaded on 23 Nov 2022
           </h2>
 
           <LikeUnlike />
         </div>
 
-        <div class="mt-4 text-sm text-[#334155] dark:text-slate-400">
+        <div className="mt-4 text-sm text-[#334155] dark:text-slate-400">
           Some video description here
         </div>
       </>
