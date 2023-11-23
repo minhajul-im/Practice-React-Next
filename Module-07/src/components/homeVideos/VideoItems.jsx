@@ -5,7 +5,7 @@ import Tags from "./Tags";
 import VideoCart from "./VideoCart";
 import Pagination from "./Pagination";
 import Loading from "../reusable/Loading";
-import { fetchVideos } from "../../features/videos/videoSlice";
+import { fetchVideos } from "../../features/videos/videosSlice";
 
 export default function VideoItems() {
   const dispatch = useDispatch();
