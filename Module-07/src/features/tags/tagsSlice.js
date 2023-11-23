@@ -1,14 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import getTags from "./tagsAPI";
 
+// export const fetchTags = createAsyncThunk("tags/fetchTags", async () => {
+//   const tags = await fetch("http://localhost:9000/tags");
+//   const jsonData = await tags.json();
+//   return jsonData;
+// });
 export const fetchTags = createAsyncThunk("tags/fetchTags", async () => {
   const tags = await getTags();
-  return tags;
+  return tags.data;
 });
 
 const initialState = {
   isLoading: false,
-  title: "",
+  tags: [],
   isError: false,
 };
 
@@ -23,11 +28,11 @@ const tagsSlice = createSlice({
       })
       .addCase(fetchTags.fulfilled, (state, action) => {
         state.isError = false;
-        state.isError = false;
-        state.title = action.payload;
+        state.tags = action.payload;
       })
       .addCase(fetchTags.rejected, (state) => {
         state.isLoading = false;
+        state.title = [];
         state.isError = true;
       }),
 });
