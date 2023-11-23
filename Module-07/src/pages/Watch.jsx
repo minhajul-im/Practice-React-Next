@@ -23,8 +23,7 @@ export default function Watch() {
     content = (
       <div className="grid grid-cols-3 gap-2 lg:gap-8">
         <PlayVideo video={video} />
-
-        <RelatedVideos />
+        <RelatedVideos currentVideoId={video?.id} tags={video?.tags} />
       </div>
     );
 
