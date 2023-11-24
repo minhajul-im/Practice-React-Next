@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+
 import { selectedTags, removedTags } from "../../features/filter/filterSlice";
 
 export default function Tag({ title }) {

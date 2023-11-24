@@ -9,14 +9,13 @@ import { fetchVideos } from "../../features/videos/videosSlice";
 
 export default function VideoItems() {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchVideos());
-  }, [dispatch]);
-
   const { isLoading, isError, videos, error } = useSelector(
     (state) => state.videos
   );
+  const { tags, search } = useSelector((state) => state.filter);
+  useEffect(() => {
+    dispatch(fetchVideos({ tags, search }));
+  }, [dispatch, tags, search]);
 
   let content;
 

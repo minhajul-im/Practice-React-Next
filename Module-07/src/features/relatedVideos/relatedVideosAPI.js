@@ -2,7 +2,7 @@ import axiosInstance from "../../utils/axios";
 
 const getRelatedVideos = async ({ tags, id }) => {
   const limits = 5;
-  const queryString =
+  let queryString =
     tags.length > 0
       ? tags.map((tag) => `tags_like=${tag}`).join("&") +
         `&id_ne=${id}&_limit=${limits}`
