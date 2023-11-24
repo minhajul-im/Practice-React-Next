@@ -5,6 +5,7 @@ import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import { Provider } from "react-redux";
 import store from "./app/store";
+import User from "./pages/User";
 
 const App = () => {
   return (
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/watch/:videoId",
         element: <Watch />,
+      },
+      {
+        path: "/user",
+        element: <User />,
       },
     ],
   },
