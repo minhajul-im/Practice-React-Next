@@ -1,7 +1,35 @@
-export default function App() {
+import { createBrowserRouter, Outlet } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Watch from "./pages/Watch";
+import Header from "./components/headerFooter/Header";
+import Footer from "./components/headerFooter/Footer";
+
+const App = () => {
   return (
-    <div className="text-2xl text-red-600 font-semibold text-center mt-10">
-      App
-    </div>
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
   );
-}
+};
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/watch/:videoId",
+        element: <Watch />,
+      },
+    ],
+  },
+]);
+
+export default appRouter;
