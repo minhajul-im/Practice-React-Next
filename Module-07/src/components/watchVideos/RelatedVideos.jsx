@@ -1,9 +1,10 @@
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import Loading from "../reusable/Loading";
 import RelatedVideoDes from "./RelatedVideoDes";
 import RelatedVideoThumbnail from "./RelatedVideoThumbnail";
 import { fetchRelatedVideos } from "../../features/relatedVideos/relatedVideos";
-import { useDispatch, useSelector } from "react-redux";
-import Loading from "../reusable/Loading";
 
 export default function RelatedVideos({ currentVideoId, tags }) {
   const { isError, isLoading, videos } = useSelector(

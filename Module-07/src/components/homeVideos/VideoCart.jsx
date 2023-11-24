@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
 export default function VideoCart({ video }) {
-  const { author, avatar, title, duration, views, thumbnail, date, id } = video;
+  const { author, avatar, title, duration, views, thumbnail, date, id } =
+    video || {};
 
   return (
     <section className="col-span-12 sm:col-span-6 md:col-span-3 duration-300 hover:scale-[1.03]">
@@ -21,7 +22,7 @@ export default function VideoCart({ video }) {
         </div>
 
         <div className="flex flex-row mt-2 gap-2">
-          <Link to={`/watch/${id}`} className="shrink-0">
+          <Link to={`/user/${id}`} className="shrink-0">
             <img src={avatar} className="rounded-full h-6 w-6" alt={author} />
           </Link>
 
@@ -30,7 +31,7 @@ export default function VideoCart({ video }) {
               <p className="text-slate-900 text-sm font-semibold">{title}</p>
             </Link>
             <Link
-              to={`/watch/${id}`}
+              to={`/user/${id}`}
               className="text-gray-500 text-xs mt-2 hover:text-gray-600"
             >
               {author}

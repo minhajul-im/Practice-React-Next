@@ -28,7 +28,9 @@ export default function VideoItems() {
     content = <div className="col-span-12">Not content found!</div>;
   }
   if (!isError && !isLoading && videos.length > 0) {
-    content = videos.map((video) => <VideoCart key={video.id} video={video} />);
+    content = videos.map((video) => (
+      <VideoCart key={video?.id} video={video} />
+    ));
   }
 
   return (

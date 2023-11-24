@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         element: <Watch />,
       },
       {
-        path: "/user",
+        path: "/user/:id",
         element: <User />,
       },
     ],

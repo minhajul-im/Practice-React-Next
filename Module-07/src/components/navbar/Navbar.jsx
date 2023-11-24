@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
-import logo from "../../assets/lws.svg";
 import Search from "./Search";
+import logo from "../../assets/lws.svg";
+
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (

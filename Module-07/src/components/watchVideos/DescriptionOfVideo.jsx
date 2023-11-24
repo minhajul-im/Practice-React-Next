@@ -1,7 +1,9 @@
 import LikeUnlike from "./LikeUnlike";
+import { Link } from "react-router-dom";
 
 export default function DescriptionOfVideo({ video }) {
-  const { author, avatar, title, date, description, like, unlike } = video;
+  const { id, author, avatar, title, date, description, like, unlike } =
+    video || {};
 
   return (
     <>
@@ -10,16 +12,16 @@ export default function DescriptionOfVideo({ video }) {
       </h1>
       <div className="pb-2 flex items-center space-between justify-between border-b">
         <div className="flex gap-4 items-center">
-          <a href="#" className="shrink-0">
+          <Link to={`/user/${id}`} className="shrink-0">
             <img src={avatar} className="rounded-full h-10 w-10" alt={author} />
-          </a>
+          </Link>
           <div>
-            <a
-              href="#"
+            <Link
+              to={`/user/${id}`}
               className="text-gray-700 text-[16px] font-bold mt-2 hover:text-gray-600"
             >
               {author}
-            </a>
+            </Link>
             <p className="font-semibold text-xs text-gray-500">
               1.2M subscribers
             </p>

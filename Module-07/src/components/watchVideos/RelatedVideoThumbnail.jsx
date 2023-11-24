@@ -1,10 +1,11 @@
+import PlayVideo from "./PlayVideo";
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import PlayVideo from "./PlayVideo";
 
 export default function RelatedVideoThumbnail({ video }) {
   const { watch, setWatch } = useState(null);
-  const { id, title, thumbnail, duration, link } = video || {};
+  const { id, title, thumbnail, duration } = video || {};
 
   const handleWatchClick = () => {
     setWatch(<PlayVideo video={video} />);

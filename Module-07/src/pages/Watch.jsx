@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+
+import Loading from "../components/reusable/Loading";
+import { fetchVideo } from "../features/video/videoSlice";
 import PlayVideo from "../components/watchVideos/PlayVideo";
 import RelatedVideos from "../components/watchVideos/RelatedVideos";
-import { fetchVideo } from "../features/video/videoSlice";
-import Loading from "../components/reusable/Loading";
 
 export default function Watch() {
   const { videoId } = useParams();
