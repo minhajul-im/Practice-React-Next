@@ -1,15 +1,25 @@
-export default function Tags() {
-  return (
-    <section>
-      <div className="max-w-7xl mx-auto px-5 py-6 lg:px-0 flex gap-2 border-b overflow-y-auto">
-        <div className="bg-blue-100 text-blue-600 px-4 py-1 rounded-full cursor-pointer">
-          react
-        </div>
+import { useEffect, useState } from "react";
+import Tag from "./Tag";
 
-        <div className="bg-blue-600 text-white px-4 py-1 rounded-full cursor-pointer">
-          redux
-        </div>
-      </div>
+export default function Tags() {
+  const [tags, setTags] = useState([]);
+
+  useEffect(() => {
+    fetchTags();
+  }, []);
+
+  const fetchTags = async () => {
+    const response = await fetch("http://localhost:9000/tags");
+    const jsonData = await response.json();
+
+    setTags(jsonData);
+  };
+
+  return (
+    <section className="max-w-7xl mx-auto px-5 py-6 lg:px-0 flex gap-2 border-b overflow-y-auto">
+      {tags.map((tag) => (
+        <Tag key={tag?.id} title={tag?.title} />
+      ))}
     </section>
   );
 }
