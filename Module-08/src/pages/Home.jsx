@@ -1,6 +1,6 @@
-import Pagination from "../components/home/Pagination";
 import Tags from "../components/home/Tags";
 import Videos from "../components/home/Videos";
+import Pagination from "../components/home/Pagination";
 
 export default function Home() {
   return (
