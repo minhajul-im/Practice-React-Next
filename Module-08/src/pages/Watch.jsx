@@ -25,7 +25,10 @@ export default function Watch() {
         <div className="grid grid-cols-3 gap-2 lg:gap-8">
           <PlayVideo dataOfWatchVideo={dataOfWatchVideo} />
 
-          <RelatedVideos />
+          <RelatedVideos
+            id={dataOfWatchVideo?.id}
+            tags={dataOfWatchVideo?.tags}
+          />
         </div>
       </div>
     </section>
