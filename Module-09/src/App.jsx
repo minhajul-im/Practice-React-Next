@@ -1,7 +1,28 @@
-export default function App() {
+import { Navbar, Footer } from "./components/index";
+import { createBrowserRouter, Outlet } from "react-router-dom";
+import Home from "./pages/Home";
+
+const App = () => {
   return (
-    <div className="text-2xl text-red-600 font-semibold text-center mt-10">
-      App
-    </div>
+    <>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </>
   );
-}
+};
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+    ],
+  },
+]);
+
+export default appRouter;
