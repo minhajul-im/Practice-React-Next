@@ -15,10 +15,14 @@ const App = () => {
   }, []);
 
   const fetchData = async () => {
-    const response = await fetch("http://localhost:9000/videos");
-    const data = await response.json();
-    setState(data);
-    setSearch(data);
+    try {
+      const response = await fetch("http://localhost:9000/videos");
+      const data = await response.json();
+      setState(data);
+      setSearch(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
