@@ -1,15 +1,20 @@
-import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
+import { Link, useMatch, useNavigate } from "react-router-dom";
 
 import lwsImg from "../assets/lws.svg";
 import searchImg from "../assets/search.svg";
 import ContextApi from "../utils/ContextApi";
 
 export default function Navbar() {
-  const { search, setState } = useContext(ContextApi);
+  const { search, state, setState } = useContext(ContextApi);
   const [input, setInput] = useState("");
 
+  const match = useMatch("/");
+  const navigate = useNavigate();
+
   const handleSearchClick = () => {
+    if (!match) navigate("/");
+
     const filtered = search.filter((video) =>
       video?.title.toLocaleLowerCase().includes(input.toLocaleLowerCase())
     );
