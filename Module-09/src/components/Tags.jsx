@@ -1,17 +1,29 @@
-import React from "react";
+import { useEffect, useState } from "react";
+
+import Tag from "./Tag";
 
 export default function Tags() {
+  const [tagsArr, setTagsArr] = useState([]);
+
+  useEffect(() => {
+    const fetchTags = async () => {
+      try {
+        const response = await fetch("http://localhost:9000/tags");
+        const jsonData = await response.json();
+        setTagsArr(jsonData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchTags();
+  }, []);
+
   return (
-    <section>
-      <div className="max-w-7xl mx-auto px-5 py-6 lg:px-0 flex gap-2 border-b overflow-y-auto">
-        <div className="bg-blue-100 text-blue-600 px-4 py-1 rounded-full cursor-pointer">
-          react
-        </div>
-        {/* <!-- selected --> */}
-        <div className="bg-blue-600 text-white px-4 py-1 rounded-full cursor-pointer">
-          redux
-        </div>
-      </div>
+    <section className="max-w-7xl mx-auto px-5 py-6 lg:px-0 flex gap-2 border-b overflow-y-auto">
+      {tagsArr.map((tag) => (
+        <Tag key={tag?.id} title={tag?.title} id={tag?.id} />
+      ))}
     </section>
   );
 }
