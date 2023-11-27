@@ -5,7 +5,7 @@ export default function ChannelDesc({ video }) {
 
   return (
     <div className="flex flex-row mt-2 gap-2">
-      <Link to={"/user"} className="shrink-0">
+      <Link to={`/user/${id}`} className="shrink-0">
         <img src={avatar} className="rounded-full h-6 w-6" alt={author} />
       </Link>
 
@@ -14,7 +14,7 @@ export default function ChannelDesc({ video }) {
           <p className="text-slate-900 text-sm font-semibold">{title}</p>
         </Link>
         <Link
-          to={"/user"}
+          to={`/user/${id}`}
           className="text-gray-400 text-xs mt-2 hover:text-gray-600"
         >
           {author}
