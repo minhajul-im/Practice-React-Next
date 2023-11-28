@@ -11,20 +11,25 @@ export default function Navbar() {
 
   const match = useMatch("/");
   const navigate = useNavigate();
-
   const handleSearchClick = () => {
     if (!match) navigate("/");
 
     const filtered = search.filter((video) =>
       video?.title.toLocaleLowerCase().includes(input.toLocaleLowerCase())
     );
+
     setState(filtered);
+  };
+
+  const handleResetHome = () => {
+    setState(state);
+    navigate("/");
   };
 
   return (
     <nav className="bg-slate-100 shadow-md">
       <div className="max-w-7xl mx-auto px-5 lg:px-0 flex justify-between py-3">
-        <Link to={"/"}>
+        <Link to={"/"} onClick={handleResetHome}>
           <img className="h-10" src={lwsImg} alt="Learn with Sumit" />
         </Link>
         <div className="border border-slate-200 flex items-center bg-white h-10 px-5 rounded-lg text-sm ring-emerald-200">

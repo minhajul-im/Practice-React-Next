@@ -1,6 +1,7 @@
 import likeImg from "../assets/like.svg";
 import unlikeImg from "../assets/unlike.svg";
 
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function VideoDescription({ dataOfWatchVideo }) {
@@ -50,9 +51,88 @@ export default function VideoDescription({ dataOfWatchVideo }) {
         </div>
       </div>
 
-      <div className="mt-4 text-sm text-[#334155] dark:text-slate-400">
-        {description}
-      </div>
+      {/* <Description description={description} /> */}
+      <DES description={description} />
     </>
   );
 }
+
+const DES = ({ description = "" }) => {
+  const [showDesc, setShowDesc] = useState(false);
+
+  const handleShowDescription = () => {
+    setShowDesc(!showDesc);
+  };
+
+  let des;
+  if (showDesc) {
+    des = description;
+  } else {
+    if (description.split(" ").length > 40) {
+      des = description.split(" ").slice(0, 40).join(" ");
+    } else {
+      des = description;
+    }
+  }
+
+  const showLess = (
+    <h6 className="text-xs font-semibold text-blue-600 block pt-6">
+      Show less
+    </h6>
+  );
+
+  return (
+    <div className="mt-4 text-sm text-[#334155] dark:text-slate-400">
+      {des}
+      {description.split(" ").length > 40 && (
+        <span
+          className="text-blue-600 cursor-pointer"
+          onClick={handleShowDescription}
+        >
+          {showDesc ? showLess : " ...more"}
+        </span>
+      )}
+    </div>
+  );
+};
+
+const Description = ({ description = "" }) => {
+  const [showFullDescription, setShowFullDescription] = useState(false);
+  const maxLength = 100;
+
+  const toggleDescription = () => {
+    setShowFullDescription(!showFullDescription);
+  };
+
+  let displayDescription;
+
+  if (showFullDescription) {
+    displayDescription = description;
+  } else {
+    if (description.length > maxLength) {
+      displayDescription = `${description.slice(0, maxLength)}...`;
+    } else {
+      displayDescription = description;
+    }
+  }
+
+  // const displayDescription = showFullDescription
+  //   ? description
+  //   : description.length > maxLength
+  //   ? `${description.slice(0, maxLength)}...`
+  //   : description;
+
+  return (
+    <div className="mt-4 text-sm text-[#334155] dark:text-slate-400">
+      <p>{displayDescription}</p>
+      {description.length > maxLength && (
+        <span
+          onClick={toggleDescription}
+          style={{ cursor: "pointer", color: "blue" }}
+        >
+          {showFullDescription ? "Show less" : "Show more"}
+        </span>
+      )}
+    </div>
+  );
+};

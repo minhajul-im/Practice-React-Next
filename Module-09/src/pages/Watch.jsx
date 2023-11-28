@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { useParams } from "react-router-dom";
 
 import PlayVideo from "../components/PlayVideo";
-import RelatedVideos from "../components/RelatedVideos";
+// import RelatedVideos from "../components/RelatedVideos";
+
+const RelatedVideos = lazy(() => import("../components/RelatedVideos"));
 
 export default function Watch() {
   const { videoId } = useParams();
@@ -29,10 +31,9 @@ export default function Watch() {
         <div className="grid grid-cols-3 gap-2 lg:gap-8">
           <PlayVideo dataOfWatchVideo={dataOfWatchVideo} />
 
-          <RelatedVideos
-            id={dataOfWatchVideo?.id}
-            tags={dataOfWatchVideo?.tags}
-          />
+          <Suspense fallback={<h1>Loading......</h1>}>
+            <RelatedVideos id={videoId} tags={dataOfWatchVideo?.tags} />
+          </Suspense>
         </div>
       </div>
     </section>
