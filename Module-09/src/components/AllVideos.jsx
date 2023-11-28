@@ -1,4 +1,4 @@
-import Video from "./Video";
+import VideoCart from "./VideoCart";
 
 export default function AllVideos({ videos }) {
   return (
@@ -6,7 +6,7 @@ export default function AllVideos({ videos }) {
       <div className="grid grid-cols-12 gap-4 max-w-7xl mx-auto px-5 lg:px-0 min-h-[300px]">
         {/* <!-- single video --> */}
         {videos.map((video) => (
-          <Video video={video} key={video?.id} />
+          <VideoCart video={video} key={video?.id} />
         ))}
       </div>
     </section>

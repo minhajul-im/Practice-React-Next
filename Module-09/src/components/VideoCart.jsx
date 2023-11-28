@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import ChannelDes from "./ChannelDes";
 
-export default function Video({ video }) {
+export default function VideoCart({ video }) {
   return (
     <div className="col-span-12 sm:col-span-6 md:col-span-3 duration-300 hover:scale-[1.03]">
       <div className="w-full flex flex-col">
