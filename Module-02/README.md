@@ -1,1 +1,7 @@
-# Create React App
+# Netflix React App
+
+## Header
+
+    -Netflix log
+    -Background img
+    -Sign in / Sign up
