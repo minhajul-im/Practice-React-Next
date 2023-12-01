@@ -5,7 +5,7 @@ export default function Header() {
   const [formToggle, setFormToggle] = useState(false);
 
   const handleToggleForm = () => {
-    setFormToggle(!formToggle);
+    setFormToggle(true);
   };
 
   return (

@@ -5,3 +5,8 @@
     -Netflix log
     -Background img
     -Sign in / Sign up
+
+### Add Firebase
+
+    - install firebase
+    -
