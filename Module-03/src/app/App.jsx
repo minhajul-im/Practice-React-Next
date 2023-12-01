@@ -1,8 +1,30 @@
-export default function App() {
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import Home from "../pages/Home";
+import Browse from "../pages/Browse";
+const App = () => {
   return (
-    <div>
-      <h1 className="text-red-600 font-bold text-center text-2xl">hello</h1>
-      <p className=" text-center text-green-600 font-bold">Hey there! how is it going?</p>
-    </div>
+    <>
+      <h1 className="text-center font-bold text-green-600">hey developer!</h1>
+      <Outlet />
+    </>
   );
-}
+};
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/browse",
+        element: <Browse />,
+      },
+    ],
+  },
+]);
+
+export default appRouter;
