@@ -6,6 +6,7 @@
     -Netflix log
     -Background img
     -Sign in / Sign up
+<<<<<<< HEAD
 
 ### Add Firebase
 
@@ -14,3 +15,5 @@
 =======
 # Create React App
 >>>>>>> parent of 8255e76 (form done)
+=======
+>>>>>>> parent of e7c7af0 (some features added)
