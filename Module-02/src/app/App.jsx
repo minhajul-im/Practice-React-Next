@@ -1,11 +1,30 @@
+import { Home, Browse } from "../pages/index";
 import Header from "../components/header&footer/Header";
-import Home from "../pages/Home";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 
-export default function App() {
+const App = () => {
   return (
     <>
       <Header />
-      <Home />
+      <Outlet />
     </>
   );
-}
+};
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/browse",
+        element: <Browse />,
+      },
+    ],
+  },
+]);
+export default appRouter;
