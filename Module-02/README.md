@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Netflix React App
 
 ## Header
@@ -10,3 +11,6 @@
 
     - install firebase
     - add firebase
+=======
+# Create React App
+>>>>>>> parent of 8255e76 (form done)
