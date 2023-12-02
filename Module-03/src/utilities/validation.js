@@ -7,6 +7,5 @@ export const validation = (email, password) => {
   if (!isEmail) return "Email is not valid!";
   if (!isPassword) return "Password is not valid!";
 
-  console.log(isEmail, isPassword);
   return null;
 };

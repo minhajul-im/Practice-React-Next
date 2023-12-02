@@ -1,24 +1,85 @@
 import { useRef, useState } from "react";
-import Input from "./Input";
-import { validation } from "../utilities/validation";
 import { useNavigate } from "react-router-dom";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { useDispatch } from "react-redux";
+
+import Input from "./Input";
+import { auth } from "../utilities/firebase";
+import { validation } from "../utilities/validation";
+import { addUser } from "../features/userSlice";
 
 export default function Form() {
   const [error, setError] = useState("");
   const [isSignUp, setIsSignUp] = useState(false);
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
-  const name = useRef();
-  const email = useRef();
-  const password = useRef();
+
+  const name = useRef(null);
+  const email = useRef(null);
+  const password = useRef(null);
   const handleToggle = () => {
     setIsSignUp(!isSignUp);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let checked = validation(email.current.value, password.current.value);
-    setError(checked);
-    navigate("/browse");
+
+    const message = validation(email.current.value, password.current.value);
+    setError(message);
+
+    if (message) return;
+
+    if (isSignUp) {
+      // sign up
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: "https://avatars.githubusercontent.com/u/102856393?v=4",
+          })
+            .then(() => {
+              const { uid, email, displayName } = auth.currentUser;
+              dispatch(addUser({ uid, email, displayName }));
+              navigate("/browse");
+            })
+            .catch((error) => {
+              console.log(error.message);
+            });
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+
+          setError(errorMessage);
+        });
+    } else {
+      //sign in
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          navigate("/browse");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setError(errorMessage);
+        });
+    }
   };
 
   return (

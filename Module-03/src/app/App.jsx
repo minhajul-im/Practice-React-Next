@@ -1,30 +1,12 @@
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Home from "../pages/Home";
-import Browse from "../pages/Browse";
-const App = () => {
+import { Provider } from "react-redux";
+import { RouterProvider } from "react-router-dom";
+import appRouter from "./Application";
+import appStore from "./store";
+
+export default function App() {
   return (
-    <>
-      <h1 className="text-center font-bold text-green-600">hey developer!</h1>
-      <Outlet />
-    </>
+    <Provider store={appStore}>
+      <RouterProvider router={appRouter} />
+    </Provider>
   );
-};
-
-const appRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/browse",
-        element: <Browse />,
-      },
-    ],
-  },
-]);
-
-export default appRouter;
+}
