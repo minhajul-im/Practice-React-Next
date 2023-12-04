@@ -1,30 +1,29 @@
 import { onAuthStateChanged } from "firebase/auth";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 
 import User from "../context/userContext";
 import { auth } from "../utilities/firebase";
 import { Home, Dashboard } from "../pages/index";
+import Header from "../components/Header";
 
 const App = () => {
-  const userIdentity = useContext(User);
-  const [data, setData] = useState(userIdentity);
-  console.log(data);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        const { uid, email, displayName } = user;
-        setData({ email: email, uid: uid, displayName: displayName });
+        const { email, displayName } = user;
+        setData({ email, displayName });
       } else {
-        console.log("no user");
+        setData(null);
       }
     });
   }, []);
 
   return (
-    <User.Provider value={data} className="bg-slate-100 py-10">
-      <h1 className="text-red-600 font-bold text-center py-2">Hey there!</h1>
+    <User.Provider value={{ data, setData }}>
+      <Header />
       <Outlet />
     </User.Provider>
   );

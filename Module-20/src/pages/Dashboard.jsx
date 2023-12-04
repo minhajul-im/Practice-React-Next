@@ -2,7 +2,7 @@ import { useContext } from "react";
 import User from "../context/userContext";
 
 export default function Dashboard() {
-  const { email, displayName } = useContext(User);
+  const { email, name } = useContext(User);
 
   return (
     <div>
@@ -16,7 +16,7 @@ export default function Dashboard() {
           <div className="max-w-lg mx-auto bg-white p-8 shadow-md">
             <h2 className="text-2xl font-bold mb-4">User Profile</h2>
 
-            <p>Name: {displayName}</p>
+            <p>Name: {name}</p>
             <p>Email: {email}</p>
           </div>
         </div>
