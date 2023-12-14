@@ -1,8 +1,7 @@
 /* @tailwind base;
 @tailwind components;
-@tailwind utilities; */
-
-/* .background {
+@tailwind utilities; 
+.background {
   background-color: rgb(109, 160, 160);
 }
 .picture {
@@ -63,12 +62,21 @@ ul {
   padding-inline-start: 20px;
 }
 
-button {
-  margin: 5px;
+label {
+  display: block;
+  clear: both;
 }
-li {
-  border-radius: 5px;
+
+.counter {
+  width: 100px;
+  text-align: center;
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 0 20px 20px 0;
+  float: left;
 }
-.selected {
-  background: #d2eaff;
+
+.hover {
+  background: #ffffd8;
 }

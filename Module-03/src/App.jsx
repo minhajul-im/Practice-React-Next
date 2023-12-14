@@ -1,9 +1,9 @@
-import Challange2 from "./components/Challange2";
+import StateReset from "./components/StateReset";
 
 export default function App() {
   return (
     <div>
-      <Challange2 />
+      <StateReset />
     </div>
   );
 }
