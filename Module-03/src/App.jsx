@@ -1,9 +1,9 @@
-import StateReset from "./components/StateReset";
+import PreserveState from "./components/PreserveState";
 
 export default function App() {
   return (
     <div>
-      <StateReset />
+      <PreserveState />
     </div>
   );
 }
