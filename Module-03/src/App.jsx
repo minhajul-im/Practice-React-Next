@@ -1,9 +1,9 @@
-import PreserveState from "./components/PreserveState";
+import ScoreBoard from "./components/ScoreBoard";
 
 export default function App() {
   return (
     <div>
-      <PreserveState />
+      <ScoreBoard />
     </div>
   );
 }
