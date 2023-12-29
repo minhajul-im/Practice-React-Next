@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import books from "../db/db";
-import { Hero, BooksList } from "./index";
+import { Hero, NoResult, BooksList } from "./index";
 
 export default function MainContainer() {
   const [allBooks, setAllBooks] = useState(books);
@@ -31,6 +31,8 @@ export default function MainContainer() {
       setAllBooks([...filterBook].sort((num1, num2) => num2.year - num1.year));
     }
   };
+
+  if (allBooks.length === 0) return <NoResult />;
 
   return (
     <section className='my-10 lg:my-14'>
