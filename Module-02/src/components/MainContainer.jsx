@@ -1,5 +1,4 @@
-import Hero from "./Hero";
-import BooksList from "./BooksList";
+import { Hero, BooksList } from "./index";
 
 export default function MainContainer() {
   return (
