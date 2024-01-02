@@ -1,33 +1,7 @@
-import { createBrowserRouter, Outlet } from "react-router-dom";
-
-import { Blog, Home } from "./pages/index";
-import { Header, Footer } from "./components/header&footer/index";
-
-const App = () => {
+export default function App() {
   return (
-    <>
-      <Header />
-      <Outlet />
-      <Footer />
-    </>
-  );
-};
-
-const appRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/blog/:id",
-        element: <Blog />,
-      },
-    ],
-  },
-]);
-
-export default appRouter;
+    <div>
+      <h1 className="text-red-600 text-center">Hello</h1>
+    </div>
+  )
+}
