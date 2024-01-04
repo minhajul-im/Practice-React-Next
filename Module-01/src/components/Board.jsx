@@ -21,7 +21,7 @@ const calculateWinner = (squares) => {
   return null;
 };
 
-const Bord = ({ squares, isNext, onPlayGame }) => {
+export default function Board({ squares, isNext, onPlayGame }) {
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
@@ -68,4 +68,4 @@ const Bord = ({ squares, isNext, onPlayGame }) => {
       </div>
     </div>
   );
-};
+}
