@@ -1,3 +1,5 @@
+import Board from "./Board";
+
 import { useState } from "react";
 
 export default function Game() {
@@ -41,7 +43,11 @@ export default function Game() {
         Tic Tac Toe!{" "}
       </h1>
       <div className='flex justify-center '>
-        <Bord isNext={isNext} onPlayGame={onPlayGame} squares={currentSquare} />
+        <Board
+          isNext={isNext}
+          onPlayGame={onPlayGame}
+          squares={currentSquare}
+        />
         <ol className='border border-gray-400 p-4 m-4 rounded'>{moves}</ol>
       </div>
     </>
