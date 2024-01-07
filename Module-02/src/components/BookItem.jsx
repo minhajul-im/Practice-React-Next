@@ -1,9 +1,17 @@
-import { FaStar } from "react-icons/fa";
-import { FaRegHeart } from "react-icons/fa6";
-import { FaShoppingCart } from "react-icons/fa";
+import { useState } from "react";
+import { FaStar, FaHeart, FaRegHeart, FaShoppingCart } from "react-icons/fa";
 
 export default function BookItem({ book }) {
-  const { name, author, price, image, star, favorite } = book || {};
+  const { bookName, author, price, image, star, favorite, year } = book || {};
+  const [fav, setFav] = useState(favorite);
+
+  let style = fav
+    ? "bg-[#DC2954]/[14%]  text-[#DC2954]  hover:bg-[#DC2954]/[24%]"
+    : "bg-[#1C4336]/[14%] hover:bg-[#1C4336]/[24%] text-[#1C4336]";
+
+  const handleToggle = () => {
+    setFav(!fav);
+  };
 
   return (
     <div className='space-y-3'>
@@ -12,20 +20,21 @@ export default function BookItem({ book }) {
       </div>
 
       <div className='space-y-3'>
-        <h4 className='text-lg font-bold lg:text-xl'>{name}</h4>
+        <h4 className='text-lg font-bold lg:text-xl'>
+          {bookName} ({year})
+        </h4>
         <p className='text-xs lg:text-sm'>
           By : <span>{author}</span>
         </p>
         <div className='flex items-center justify-between'>
           <h4 className='text-lg font-bold lg:text-xl'>{price}</h4>
 
-          <div className='flex items-center space-x-1'>
-            <FaStar className='text-yellow-400' />
-            <FaStar className='text-yellow-400' />
-            <FaStar className='text-yellow-400' />
-            <FaStar className='text-yellow-400' />
-
-            <span className='text-xs lg:text-sm'>({star})</span>
+          <div className='flex items-center space-x-1 text-yellow-400'>
+            <FaStar />
+            <FaStar />
+            <FaStar />
+            <FaStar />
+            <span className='text-xs lg:text-sm text-gray-600'>({star})</span>
           </div>
         </div>
 
@@ -34,8 +43,15 @@ export default function BookItem({ book }) {
             <FaShoppingCart />
             Add to Cart
           </button>
-          <button className='flex min-w-[132px] items-center justify-center gap-1 rounded-md bg-[#1C4336]/[14%] py-1.5 text-[#1C4336] transition-all hover:bg-[#1C4336]/[24%] lg:py-1.5'>
-            <FaRegHeart />
+          <button
+            onClick={handleToggle}
+            className={`${style} flex min-w-[132px] items-center justify-center gap-1 rounded-md transition-all lg:py-1.5 py-1.5`}
+          >
+            {fav ? (
+              <FaHeart className='text-[#DC2954]' />
+            ) : (
+              <FaRegHeart className='text-[#1C4336]' />
+            )}
             Favourite
           </button>
         </div>
