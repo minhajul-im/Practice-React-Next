@@ -5,14 +5,6 @@ export default function BookItem({ book }) {
   const { bookName, author, price, image, star, favorite, year } = book || {};
   const [fav, setFav] = useState(favorite);
 
-  let style = fav
-    ? "bg-[#DC2954]/[14%]  text-[#DC2954]  hover:bg-[#DC2954]/[24%]"
-    : "bg-[#1C4336]/[14%] hover:bg-[#1C4336]/[24%] text-[#1C4336]";
-
-  const handleToggle = () => {
-    setFav(!fav);
-  };
-
   return (
     <div className='space-y-3'>
       <div className='flex items-center justify-center rounded-md border border-[#324251]/30 bg-white p-4'>

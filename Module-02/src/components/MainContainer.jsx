@@ -16,6 +16,26 @@ export default function MainContainer() {
     );
   };
 
+  const handleSort = (value) => {
+    if ("name_asc" === value) {
+      setAllBooks(
+        filterBook.slice().sort((a, b) => a.bookName.localeCompare(b.bookName))
+      );
+    } else if ("name_desc" === value) {
+      setAllBooks(
+        filterBook.slice().sort((a, b) => b.bookName.localeCompare(a.bookName))
+      );
+    } else if ("year_asc" === value) {
+      setAllBooks(
+        filterBook.slice().sort((num1, num2) => num1.year - num2.year)
+      );
+    } else if ("year_desc" === value) {
+      setAllBooks(
+        filterBook.slice().sort((num1, num2) => num2.year - num1.year)
+      );
+    }
+  };
+
   return (
     <div className='my-10 lg:my-14'>
       <Hero onFilter={handleFilter} onSort={handleSort} />
