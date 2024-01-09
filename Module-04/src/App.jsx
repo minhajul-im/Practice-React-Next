@@ -1,9 +1,9 @@
-import TaskerReducer from "./components/TaskerReducer";
+import ChallengeOne from "./challenge_one/ChallengeOne";
 
 export default function App() {
   return (
     <>
-      <TaskerReducer />
+      <ChallengeOne />
     </>
   );
 }
