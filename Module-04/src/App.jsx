@@ -1,9 +1,9 @@
-import ChallengeOne from "./challenge_one/ChallengeOne";
+import ChallengeTwo from "./challenge_two/ChallengeTwo";
 
 export default function App() {
   return (
     <>
-      <ChallengeOne />
+      <ChallengeTwo />
     </>
   );
 }
