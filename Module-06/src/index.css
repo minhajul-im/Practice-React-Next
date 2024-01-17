@@ -15,3 +15,6 @@
   width: 298px;
   height: 180px;
 }
+:where(main) :where(h1) {
+  color: red;
+}

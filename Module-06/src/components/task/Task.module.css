@@ -1,0 +1,6 @@
+.ul {
+  background-color: rgb(117, 173, 173);
+}
+:where(ul) :where(li) {
+  color: rgb(209, 24, 24);
+}
