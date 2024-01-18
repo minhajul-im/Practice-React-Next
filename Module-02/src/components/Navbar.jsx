@@ -14,7 +14,7 @@ export default function Navbar() {
           />
         </a>
 
-        <FaRegBell />
+        <FaRegBell className='cursor-pointer' />
       </div>
     </nav>
   );
