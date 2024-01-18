@@ -5,15 +5,16 @@ import { Hero, NoResult, BooksList } from "./index";
 
 export default function MainContainer() {
   const [allBooks, setAllBooks] = useState(books);
-
-  const filterBook = JSON.parse(JSON.stringify(books));
+  const [filterBook, setFilterBook] = useState(
+    JSON.parse(JSON.stringify(books))
+  );
 
   const handleFilter = (input) => {
-    setAllBooks(
-      [...filterBook].filter((book) =>
-        book?.bookName.toLowerCase().includes(input)
-      )
+    const filtered = [...filterBook].filter((book) =>
+      book?.bookName.toLowerCase().includes(input)
     );
+    setAllBooks(filtered);
+    setFilterBook(filtered);
   };
 
   const handleSort = (value) => {

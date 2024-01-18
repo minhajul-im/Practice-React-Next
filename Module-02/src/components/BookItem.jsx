@@ -1,4 +1,5 @@
 import { FaStar, FaHeart, FaRegHeart, FaShoppingCart } from "react-icons/fa";
+const x = "https://m.media-amazon.com/images/I/";
 
 export default function BookItem({ book, onToggle }) {
   const { bookName, author, price, image, star, favorite, year } = book || {};
@@ -8,9 +9,9 @@ export default function BookItem({ book, onToggle }) {
     : "bg-[#1C4336]/[14%] hover:bg-[#1C4336]/[24%] text-[#1C4336]";
 
   return (
-    <section className='space-y-3'>
-      <div className='flex items-center justify-center rounded-md border border-[#324251]/30 bg-white p-4'>
-        <img className='max-w-[144px]' src={image} alt='book name' />
+    <section className='space-y-3 w-[284px] h-[386px] m-1 mx-auto'>
+      <div className='flex items-center justify-center rounded-md border border-[#324251]/30 bg-white p-4 w-[262px] h-[230px] '>
+        <img className='w-[144px] h-[190px]' src={x + image} alt={bookName} />
       </div>
 
       <div className='space-y-3'>
