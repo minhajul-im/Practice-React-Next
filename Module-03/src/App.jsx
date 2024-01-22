@@ -1,11 +1,9 @@
-import { useState, useEffect } from "react";
-
-import TravelPlan from "./components/TravelPlan";
+import MailClient from "./components/MailClient";
 
 export default function App() {
   return (
     <div>
-      <TravelPlan />
+      <MailClient />
     </div>
   );
 }
