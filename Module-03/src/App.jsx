@@ -1,9 +1,9 @@
-import Challange1 from "./components/Challange1";
+import Challange2 from "./components/Challange2";
 
 export default function App() {
   return (
     <div>
-      <Challange1 />
+      <Challange2 />
     </div>
   );
 }
