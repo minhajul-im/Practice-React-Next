@@ -1,9 +1,9 @@
-import MailClient from "./components/MailClient";
+import Accordion from "./components/Accordion";
 
 export default function App() {
   return (
     <div>
-      <MailClient />
+      <Accordion />
     </div>
   );
 }
