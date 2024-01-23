@@ -1,9 +1,9 @@
-import ScoreBoard from "./components/ScoreBoard";
+import Messenger from "./components/Messenger";
 
 export default function App() {
   return (
     <div>
-      <ScoreBoard />
+      <Messenger />
     </div>
   );
 }
