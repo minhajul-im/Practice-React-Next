@@ -1,7 +1,7 @@
 import { useReducer, useState } from "react";
 import AddTask from "./AddTask";
 import TaskList from "./TaskList";
-import taskReducer from "../reducer/taskReducer";
+import taskReducer, { taskReducers } from "../reducer/taskReducer";
 
 const initialTasks = [
   { id: 0, text: "Visit Kafka Museum", done: true },
@@ -10,7 +10,7 @@ const initialTasks = [
 ];
 
 export default function TaskerReducer() {
-  const [tasks, dispatch] = useReducer(taskReducer, initialTasks);
+  const [tasks, dispatch] = useReducer(taskReducers, initialTasks);
 
   const nextId = (data) => {
     const id = data.reduce((prev, cur) =>
