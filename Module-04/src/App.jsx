@@ -1,5 +1,9 @@
-import React from "react";
+import Tasker from "./components/Tasker";
 
 export default function App() {
-  return <div>App</div>;
+  return (
+    <>
+      <Tasker />
+    </>
+  );
 }
