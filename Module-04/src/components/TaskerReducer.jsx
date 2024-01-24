@@ -2,6 +2,8 @@ import { useReducer, useState } from "react";
 import AddTask from "./AddTask";
 import TaskList from "./TaskList";
 import taskReducer, { taskReducers } from "../reducer/taskReducer";
+import { useImmerReducer } from "use-immer";
+import taskImmerReducer from "../reducer/taskImmerReducer";
 
 const initialTasks = [
   { id: 0, text: "Visit Kafka Museum", done: true },
@@ -10,7 +12,8 @@ const initialTasks = [
 ];
 
 export default function TaskerReducer() {
-  const [tasks, dispatch] = useReducer(taskReducers, initialTasks);
+  //   const [tasks, dispatch] = useReducer(taskReducers, initialTasks);
+  const [tasks, dispatch] = useImmerReducer(taskImmerReducer, initialTasks);
 
   const nextId = (data) => {
     const id = data.reduce((prev, cur) =>
