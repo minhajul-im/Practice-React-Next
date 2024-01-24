@@ -1,9 +1,9 @@
-import Tasker from "./components/Tasker";
+import TaskerReducer from "./components/TaskerReducer";
 
 export default function App() {
   return (
     <>
-      <Tasker />
+      <TaskerReducer />
     </>
   );
 }

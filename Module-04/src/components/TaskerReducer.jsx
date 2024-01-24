@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import AddTask from "./AddTask";
 import TaskList from "./TaskList";
+import taskReducer from "../reducer/taskReducer";
 
 const initialTasks = [
   { id: 0, text: "Visit Kafka Museum", done: true },
   { id: 1, text: "Watch a puppet show", done: false },
   { id: 2, text: "Lennon Wall pic", done: false },
 ];
-export default function Tasker() {
-  const [tasks, setTasks] = useState(initialTasks);
+
+export default function TaskerReducer() {
+  const [tasks, dispatch] = useReducer(taskReducer, initialTasks);
 
   const nextId = (data) => {
     const id = data.reduce((prev, cur) =>
@@ -18,23 +20,25 @@ export default function Tasker() {
   };
 
   const handleAddTask = (text) => {
-    setTasks([...tasks, { id: nextId(tasks), text, done: false }]);
+    dispatch({
+      type: "added",
+      id: nextId(tasks),
+      text,
+    });
   };
 
   const handleChangeTask = (task) => {
-    setTasks(
-      tasks.map((item) => {
-        if (task.id === item.id) {
-          return task;
-        } else {
-          return item;
-        }
-      })
-    );
+    dispatch({
+      type: "changed",
+      task,
+    });
   };
 
   const handleDeleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+    dispatch({
+      type: "deleted",
+      id,
+    });
   };
 
   return (
