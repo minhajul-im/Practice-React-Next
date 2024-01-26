@@ -46,13 +46,14 @@ ul {
   padding-inline-start: 20px;
 }
 
-.section {
-  padding: 10px;
-  margin: 5px;
-  border-radius: 5px;
-  border: 1px solid #aaa;
+ul {
+  list-style-type: none;
+  padding: 0px 10px;
 }
-
-.fancy {
-  border: 4px dashed pink;
+li {
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: center;
 }
