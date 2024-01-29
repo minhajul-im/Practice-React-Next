@@ -1,10 +1,11 @@
-import OnOff from "./components/OnOff";
+import DebouncedButton from "./components/DebouncedButton";
 
 export default function App() {
   return (
     <div className='text-red-600 font-bold text-center text-2xl'>
       App
-      <OnOff />
+      <br />
+      <DebouncedButton />
     </div>
   );
 }
