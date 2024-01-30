@@ -1,11 +1,11 @@
-import ChallengeThree from "./components/ChallengeThree";
+import ChallengeFour from "./components/ChallengeFour";
 
 export default function App() {
   return (
     <div className='text-red-600 font-bold text-center text-2xl'>
       App
       <br />
-      <ChallengeThree />
+      <ChallengeFour />
     </div>
   );
 }
