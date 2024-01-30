@@ -72,3 +72,13 @@ li {
   display: inline;
   padding: 0.5rem;
 }
+
+img {
+  padding: 10px;
+  margin: -10px;
+  transition: background 0.2s linear;
+}
+
+.active {
+  background: rgba(121, 12, 148, 0.4);
+}
