@@ -1,9 +1,9 @@
-import ChallengeThree from "./effeccts/ChallengeThree";
+import ChallengeFour from "./effeccts/ChallengeFour";
 
 export default function App() {
   return (
     <div>
-      <ChallengeThree />
+      <ChallengeFour />
     </div>
   );
 }
