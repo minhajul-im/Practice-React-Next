@@ -1,9 +1,9 @@
-import ChallengeFour from "./effeccts/ChallengeFour";
+import OnlineStatus from "./effeccts/OnlineStatus";
 
 export default function App() {
   return (
     <div>
-      <ChallengeFour />
+      <OnlineStatus />
     </div>
   );
 }
