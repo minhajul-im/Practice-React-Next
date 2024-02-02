@@ -1,9 +1,9 @@
-import ChallengeOne from "./effeccts/ChallengeOne";
+import ChallengeTwo from "./effeccts/ChallengeTwo";
 
 export default function App() {
   return (
     <div>
-      <ChallengeOne />
+      <ChallengeTwo />
     </div>
   );
 }
