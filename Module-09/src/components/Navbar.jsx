@@ -1,16 +1,8 @@
-const images = {
-  hamburger: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3WH3C_hXNmb-Lb9lDwUbvyZkZ2GMNCQ7Guw&s`,
-  brandLogo: `https://sambadenglish.com/wp-content/uploads/2017/08/new-youtube-logo-840x402.jpg`,
-  searchIcon: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_UjpZD5bCqc03Db2CELthIwlmOU-19GedTA&s`,
-  voiceIcon: `https://e7.pngegg.com/pngimages/831/868/png-clipart-microphone-google-voice-search-computer-icons-microphone-electronics-microphone-thumbnail.png`,
-  uploadIcon: `https://w7.pngwing.com/pngs/757/1013/png-transparent-upload-video-film-movie-user-interface-icon-thumbnail.png`,
-  notification: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZEy3OIFj1dZhMsamM1KjQcWrza76ZDT8Oeg&s`,
-  user: `https://avatars.githubusercontent.com/u/102856393?v=4`,
-};
+import { images } from "../db/navbarData";
 
 export default function Navbar() {
   return (
-    <nav className='grid grid-flow-col'>
+    <nav className='grid grid-flow-col shadow'>
       <div className='flex items-center gap-4 grid-cols-4 ml-10'>
         <img
           className='img h-10 cursor-pointer'
@@ -31,7 +23,7 @@ export default function Navbar() {
             type='text'
           />
           <img
-            className='img w-6 cursor-pointer'
+            className='img w-8 cursor-pointer pr-3'
             src={images.searchIcon}
             alt='search'
           />
@@ -39,7 +31,7 @@ export default function Navbar() {
         <img
           src={images.voiceIcon}
           alt='voice'
-          className='voice w-8 h-8 cursor-pointer'
+          className='voice  h-8 cursor-pointer'
         />
       </form>
       <div className='flex items-center grid-cols-4 mr-10 justify-end gap-8'>
