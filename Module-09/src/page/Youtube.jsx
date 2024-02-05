@@ -5,6 +5,7 @@ import VideoesContainer from "../components/VideoesContainer";
 
 import { fetchApi } from "../utilities/fetchApi";
 import { YOUTUBE_VIDEOES_API } from "../utilities/constant";
+import VideoCard from "../components/VideoCard";
 
 export default function Youtube() {
   const [videoes, setVideoes] = useState([]);
@@ -23,14 +24,12 @@ export default function Youtube() {
       ignore = true;
     };
   }, []);
-
-  console.log(videoes[0]);
-
+  console.count("youtube");
   return (
     <section>
       <ButtonGroup />
 
-      <VideoesContainer videoInfo={videoes[0]}></VideoesContainer>
+      <VideoesContainer videoes={videoes} />
     </section>
   );
 }

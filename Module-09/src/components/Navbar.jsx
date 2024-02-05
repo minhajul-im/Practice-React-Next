@@ -1,19 +1,23 @@
+import { Link } from "react-router-dom";
 import { images } from "../db/navbarData";
 
-export default function Navbar() {
+export default function Navbar({ onToggle }) {
   return (
     <nav className='grid grid-flow-col'>
       <div className='flex items-center gap-4 grid-cols-4 ml-10'>
         <img
+          onClick={onToggle}
           className='img h-10 cursor-pointer'
           src={images.hamburger}
           alt='hamburger'
         />
-        <img
-          className='img h-20 cursor-pointer'
-          src={images.brandLogo}
-          alt='youtube'
-        />
+        <Link to={"/"}>
+          <img
+            className='img h-20 cursor-pointer'
+            src={images.brandLogo}
+            alt='youtube'
+          />
+        </Link>
       </div>
       <form className='flex items-center grid-cols-4 gap-4'>
         <label className='border border-gray-600 flex items-center px-4 rounded-full w-full justify-between'>

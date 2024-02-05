@@ -36,13 +36,13 @@ export const asideData = [
   {
     id: crypto.randomUUID(),
     icon: "⚡",
-    url: "/",
+    url: "/shorts",
     title: "Shorts",
   },
   {
     id: crypto.randomUUID(),
     icon: "🗂️",
-    url: "/",
+    url: "/subscriptions",
     title: "Subscriptions",
   },
 ];
