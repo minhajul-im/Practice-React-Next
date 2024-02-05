@@ -1,0 +1,48 @@
+export const buttonNames = [
+  "Programming",
+  "Gaming",
+  "Football",
+  "Entertainment",
+  "Technology",
+  "Music",
+  "Travel",
+  "Food",
+  "Movies",
+  "Books",
+  "Art",
+  "Fitness",
+  "Science",
+  // "Fashion",
+  // "Education",
+  // "Health",
+  // "Business",
+  // "Cars",
+  // "Nature",
+  // "Photography",
+  // "Cooking",
+  // "DIY",
+  // "History",
+  // "Space",
+  // "Animals",
+];
+
+export const asideData = [
+  {
+    id: crypto.randomUUID(),
+    icon: "🏠",
+    url: "/",
+    title: "Home",
+  },
+  {
+    id: crypto.randomUUID(),
+    icon: "⚡",
+    url: "/",
+    title: "Shorts",
+  },
+  {
+    id: crypto.randomUUID(),
+    icon: "🗂️",
+    url: "/",
+    title: "Subscriptions",
+  },
+];

@@ -2,7 +2,7 @@ import { images } from "../db/navbarData";
 
 export default function Navbar() {
   return (
-    <nav className='grid grid-flow-col shadow'>
+    <nav className='grid grid-flow-col'>
       <div className='flex items-center gap-4 grid-cols-4 ml-10'>
         <img
           className='img h-10 cursor-pointer'
@@ -16,7 +16,7 @@ export default function Navbar() {
         />
       </div>
       <form className='flex items-center grid-cols-4 gap-4'>
-        <label className='border flex items-center px-4 rounded-full w-full justify-between'>
+        <label className='border border-gray-600 flex items-center px-4 rounded-full w-full justify-between'>
           <input
             className='outline-none py-2 px-4 text-gray-600 font-semibold tracking-wide text-xl w-full'
             placeholder='Search'
