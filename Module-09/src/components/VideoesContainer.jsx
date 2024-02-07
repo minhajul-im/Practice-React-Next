@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 
 import VideoCard from "./VideoCard";
+import { useVideoesContext } from "../context/VideoesContext";
 
-export default function VideoesContainer({ videoes }) {
-  console.log(videoes[0]);
+export default function VideoesContainer() {
+  const videoes = useVideoesContext();
 
   return (
     <div className='w-full flex flex-wrap gap-6'>

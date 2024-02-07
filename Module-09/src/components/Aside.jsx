@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { asideData, buttonNames } from "../db/data";
+import { useTaggleContext } from "../context/AsideContext";
 
-export default function Aside({ show }) {
+export default function Aside() {
+  const showAside = useTaggleContext();
+
   return (
-    show && (
+    showAside && (
       <div className='w-[300px] absolute z-20 bg-white'>
         <ul className='mx-6 my-1'>
           {asideData.map((item) => (

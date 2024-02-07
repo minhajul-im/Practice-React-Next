@@ -1,39 +1,25 @@
-import { createBrowserRouter, Outlet } from "react-router-dom";
-import Aside from "./components/Aside";
-import Navbar from "./components/Navbar";
-import Youtube from "./page/Youtube";
-import Watch from "./page/Watch";
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 
-function App() {
+import Navbar from "./components/Navbar";
+import Aside from "./components/Aside";
+
+import VideoesProvider from "./context/VideoesContext";
+import ToggleContextProvider from "./context/AsideContext";
+
+export default function App() {
   const [show, setShow] = useState(true);
 
   return (
     <main>
-      <Navbar onToggle={() => setShow((prev) => !prev)} />
-      <section className='flex'>
-        <Aside show={show} />
+      <ToggleContextProvider>
+        <Navbar />
+        <Aside />
+      </ToggleContextProvider>
+
+      <VideoesProvider>
         <Outlet />
-      </section>
+      </VideoesProvider>
     </main>
   );
 }
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Youtube />,
-      },
-      {
-        path: "/watch",
-        element: <Watch />,
-      },
-    ],
-  },
-]);
-
-export default router;

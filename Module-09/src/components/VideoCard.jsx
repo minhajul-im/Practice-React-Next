@@ -1,6 +1,6 @@
-import { getTimeAgo } from "../utilities/date";
-
 import { images } from "../db/navbarData";
+import { getTimeAgo } from "../utilities/date";
+import { formateViews } from "../utilities/formateViews";
 
 export default function VideoCard({ videoInfo }) {
   return (
@@ -24,7 +24,7 @@ export default function VideoCard({ videoInfo }) {
             {videoInfo?.snippet.channelTitle}
           </li>
           <li className='text-sm'>
-            {(videoInfo?.statistics?.commentCount / 1000).toFixed(2)}k •{" "}
+            {formateViews(videoInfo?.statistics?.viewCount)} views •{" "}
             {getTimeAgo(videoInfo?.snippet?.publishedAt)}
           </li>
         </ul>

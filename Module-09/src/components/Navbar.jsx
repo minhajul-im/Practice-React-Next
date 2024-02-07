@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import { images } from "../db/navbarData";
+import { useSetToggleContext, useTaggleContext } from "../context/AsideContext";
 
-export default function Navbar({ onToggle }) {
+export default function Navbar() {
+  const aside = useTaggleContext();
+  const handleToggle = useSetToggleContext();
+
   return (
     <nav className='grid grid-flow-col'>
       <div className='flex items-center gap-4 grid-cols-4 ml-10'>
         <img
-          onClick={onToggle}
+          onClick={() => handleToggle(!aside)}
           className='img h-10 cursor-pointer'
           src={images.hamburger}
           alt='hamburger'
