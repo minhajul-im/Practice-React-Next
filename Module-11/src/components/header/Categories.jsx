@@ -52,7 +52,7 @@ export default function Categories() {
 
   return (
     <div className='container mx-auto mt-6'>
-      <ul className='flex flex-wrap items-center justify-center gap-5 text-xs font-semibold lg:text-base'>
+      <ul className='flex flex-wrap items-center justify-center gap-10 text-xs font-semibold lg:text-base'>
         <li
           className={activeCategory === "Home" ? "text-[#00d991]" : ""}
           onClick={() => handleCategoryClick("Home")}
