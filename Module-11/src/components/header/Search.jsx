@@ -3,52 +3,108 @@ import { useEffect, useState } from "react";
 import { search } from "../../constant/newsService";
 import { useDebounce } from "../../hooks/useDebounce";
 import { useNewsContext } from "../../hooks/useNewsContext";
+import { useThemeContext } from "../../hooks/useThemeContext";
 
 export default function Search() {
   const [query, setQuery] = useState("");
-
-  const debounceValue = useDebounce(query, 1000);
+  const [show, setShow] = useState(false);
+  const debouncedValue = useDebounce(query, 1000);
+  const { darkMode } = useThemeContext();
 
   const { newsData, setNewsData } = useNewsContext();
 
   useEffect(() => {
-    const searching = async (url) => {
-      const res = await fetch(url);
-      const json = await res.json();
+    const fetchNews = async () => {
+      if (!debouncedValue) return;
 
-      setNewsData({
-        ...newsData,
-        articles: json?.result,
-      });
+      try {
+        const response = await fetch(`${search}${debouncedValue}`);
+        const data = await response.json();
+
+        setNewsData({
+          ...newsData,
+          articles: data?.result || [],
+        });
+      } catch (error) {
+        console.error("Error fetching news:", error);
+      }
     };
-    /**
-     // TODO  search korar por ami input search clear korbo tokhn abar ami cai age data show koraite, 
-     */
 
-    if (debounceValue) {
-      searching(search + debounceValue);
-    }
-  }, [query, debounceValue, newsData, setNewsData]);
+    fetchNews();
+  }, [debouncedValue]);
 
   return (
-    <div className='relative flex items-center w-300 overflow-hidden rounded-md border border-gray-300 bg-white transition duration-200 ease-in-out focus-within:border-indigo-500 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-opacity-50 hover:w-500'>
-      <input
-        onChange={(e) => setQuery(e.target.value)}
-        type='text'
-        placeholder='Search...'
-        className={`px-3 py-2 text-base focus:outline-none placeholder-opacity-50 hover:placeholder-opacity-100 dark:text-gray-700 dark:focus:text-gray-700 transition-all w-[400px]`}
-      />
+    <div
+      className={`w-[500px] rounded-3xl  flex items-center gap-3 ${
+        !show ? "justify-end py-2" : "border"
+      } `}
+    >
+      {show && (
+        <input
+          onChange={(e) => setQuery(e.target.value)}
+          type='search'
+          className={`w-full outline-none ps-6 py-2 rounded-l-3xl ${
+            darkMode
+              ? "text-gray-700 bg-slate-300"
+              : "bg-gray-300 text-gray-700"
+          }`}
+        />
+      )}
       <svg
-        className='absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 hover:opacity-100 dark:text-gray-300'
-        viewBox='0 0 20 20'
-        fill='currentColor'
+        onClick={() => setShow(!show)}
+        className={`w-6 h-6 cursor-pointer mr-3`}
+        xmlns='http://www.w3.org/2000/svg'
+        fill='none'
+        viewBox='0 0 24 24'
+        stroke='currentColor'
       >
         <path
-          fillRule='evenodd'
-          d='M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z'
-          clipRule='evenodd'
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth={2}
+          d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
         />
       </svg>
     </div>
   );
 }
+
+/**
+ * 
+  // useEffect(() => {
+  //   if (query === "") return;
+
+  //   const searching = async (url) => {
+  //     const res = await fetch(url);
+  //     const json = await res.json();
+
+  //     setNewsData((prevData) => ({
+  //       ...prevData,
+  //       articles: json?.result,
+  //     }));
+  //   };
+  //   if (debounceValue) {
+  //     searching(search + debounceValue);
+  //   }
+  // }, [debounceValue]);
+
+  useEffect(() => {
+    if (query === "") return;
+    if (debounceValue) {
+      const x = async (url) => {
+        await searchingNewsData(url);
+      };
+      x(search + debounceValue);
+    }
+  }, []);
+
+  const searchingNewsData = async (url) => {
+    try {
+      const res = await fetch(url);
+      const json = await res.json();
+      return json;
+    } catch (error) {
+      throw new Error(`SEARCHING FAILD....... ${error}`);
+    }
+  };
+ */

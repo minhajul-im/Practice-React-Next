@@ -8,7 +8,7 @@ export default function RightSideNews({ children, newItems = [] }) {
         {children}
 
         {newItems.map((news, i) => (
-          <SingleRightSideNews key={i} newsInfo={news} />
+          <SingleRightSideNews key={i + news?.title} newsInfo={news} />
         ))}
       </div>
     </div>

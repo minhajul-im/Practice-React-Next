@@ -51,13 +51,13 @@ export default function Categories() {
   };
 
   return (
-    <div className='container mx-auto mt-6'>
-      <ul className='flex flex-wrap items-center justify-center gap-10 text-xs font-semibold lg:text-base'>
+    <div className='container mx-auto mt-4'>
+      <ul className='flex flex-wrap items-center justify-center gap-10 font-semibold lg:text-base'>
         <li
           className={activeCategory === "Home" ? "text-[#00d991]" : ""}
           onClick={() => handleCategoryClick("Home")}
         >
-          <a href='#' className='text-sm font-semibold'>
+          <a href='#' className='font-semibold'>
             Home
           </a>
         </li>
@@ -65,7 +65,7 @@ export default function Categories() {
           className={activeCategory === "General" ? "text-[#00d991]" : ""}
           onClick={() => handleCategoryClick("General")}
         >
-          <a href='#' className='text-sm font-semibold'>
+          <a href='#' className='font-semibold'>
             General
           </a>
         </li>
@@ -73,7 +73,7 @@ export default function Categories() {
           className={activeCategory === "Business" ? "text-[#00d991]" : ""}
           onClick={() => handleCategoryClick("Business")}
         >
-          <a href='#' className='text-sm font-semibold'>
+          <a href='#' className='font-semibold'>
             Business
           </a>
         </li>
@@ -81,7 +81,7 @@ export default function Categories() {
           className={activeCategory === "Entertainment" ? "text-[#00d991]" : ""}
           onClick={() => handleCategoryClick("Entertainment")}
         >
-          <a href='#' className='text-sm font-semibold'>
+          <a href='#' className='font-semibold'>
             Entertainment
           </a>
         </li>
@@ -89,7 +89,7 @@ export default function Categories() {
           className={activeCategory === "Health" ? "text-[#00d991]" : ""}
           onClick={() => handleCategoryClick("Health")}
         >
-          <a href='#' className='text-sm font-semibold'>
+          <a href='#' className='font-semibold'>
             Health
           </a>
         </li>
@@ -97,7 +97,7 @@ export default function Categories() {
           className={activeCategory === "Science" ? "text-[#00d991]" : ""}
           onClick={() => handleCategoryClick("Science")}
         >
-          <a href='#' className='text-sm font-semibold'>
+          <a href='#' className='font-semibold'>
             Science
           </a>
         </li>
@@ -105,7 +105,7 @@ export default function Categories() {
           className={activeCategory === "Sports" ? "text-[#00d991]" : ""}
           onClick={() => handleCategoryClick("Sports")}
         >
-          <a href='#' className='text-sm font-semibold'>
+          <a href='#' className='font-semibold'>
             Sports
           </a>
         </li>
@@ -113,7 +113,7 @@ export default function Categories() {
           className={activeCategory === "Technology" ? "text-[#00d991]" : ""}
           onClick={() => handleCategoryClick("Technology")}
         >
-          <a href='#' className='text-sm font-semibold'>
+          <a href='#' className='font-semibold'>
             Technology
           </a>
         </li>
