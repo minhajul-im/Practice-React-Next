@@ -42,14 +42,7 @@ export default function ToDoApp() {
 
   const handleEdit = (todo: ToDo) => {
     setTodos(
-      todos.map((t: ToDo) => {
-        if (todo.id === t.id) {
-          /// why give me red alart can you check
-          return todo;
-        } else {
-          return t;
-        }
-      })
+      todos.map((t: ToDo) => t.id === todo.id ? todo : t)
     );
   };
 
