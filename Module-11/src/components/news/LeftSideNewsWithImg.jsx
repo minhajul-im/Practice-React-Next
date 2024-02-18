@@ -9,10 +9,10 @@ export default function LeftSideNewsWithImg({ newsInfo }) {
     newsInfo || {};
 
   return (
-    <div className='col-span-12 grid grid-cols-12 gap-4 lg:col-span-8'>
-      <div className='col-span-12 md:col-span-6'>
+    <div className="col-span-12 grid grid-cols-12 gap-4 lg:col-span-8">
+      <div className="col-span-12 md:col-span-6">
         <a href={url}>
-          <h3 className='mb-2.5 text-xl font-bold lg:text-2xl'>{title}</h3>
+          <h3 className="mb-2.5 text-xl font-bold lg:text-2xl">{title}</h3>
         </a>
         <p
           className={`text-base ${
@@ -21,14 +21,14 @@ export default function LeftSideNewsWithImg({ newsInfo }) {
         >
           {description || content}
         </p>
-        <p className='mt-5 text-base text-[#5C5955]'>
+        <p className="mt-5 text-base text-[#5C5955]">
           {publishedAt && newsDateFormet(publishedAt)}
         </p>
       </div>
 
-      <div className='col-span-12 md:col-span-6'>
+      <div className="col-span-12 md:col-span-6">
         <img
-          className='w-full'
+          className="w-full"
           src={(title && urlToImage) || defaultImg}
           alt={title}
         />

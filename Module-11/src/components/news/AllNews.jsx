@@ -22,8 +22,8 @@ export default function AllNews() {
   const rightSingleNewsItems = remainingNewsTwo.slice(extra * 2);
 
   return (
-    <main className='my-10 lg:my-14'>
-      <div className='container mx-auto grid grid-cols-12 gap-8'>
+    <main className="my-10 lg:my-14">
+      <div className="container mx-auto grid grid-cols-12 gap-8">
         {/* <!-- left --> */}
         <LeftSideNews newsItems={leftSingleNewsItems}>
           <TopLeftSideNews newsInfo={topLeftSideNewsData} />

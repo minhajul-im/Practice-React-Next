@@ -7,9 +7,9 @@ export default function Dark() {
   return (
     <div onClick={() => setDarkMode(!darkMode)}>
       <img
-        className='w-[25px] h-[25px] cursor-pointer'
+        className="w-[25px] h-[25px] cursor-pointer"
         src={darkMode ? sun : moon}
-        alt='sun'
+        alt="sun"
       />
     </div>
   );
