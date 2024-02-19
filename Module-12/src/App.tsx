@@ -1,9 +1,9 @@
-import ToDoApp from "./components/todo/ToDoApp";
+import AxiosApp from "./components/axios/AxiosApp";
 
 export default function App() {
   return (
     <div>
-      <ToDoApp />
+      <AxiosApp />
     </div>
   );
 }
