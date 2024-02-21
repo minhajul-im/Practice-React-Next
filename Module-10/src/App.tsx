@@ -1,10 +1,18 @@
+import Products from "./components/Products";
+import ProductAdd from "./components/ProductAdd";
+import ProductDetails from "./components/ProductDetails";
+import ProductContextProvider from "./context/useContext";
 
 const App = () => {
   return (
-    <div>
-      <h1>Hello Bangladesh</h1>
-    </div>
-  )
-}
+    <ProductContextProvider>
+      <div className="flex">
+        <ProductAdd />
+        <Products />
+        <ProductDetails />
+      </div>
+    </ProductContextProvider>
+  );
+};
 
-export default App
+export default App;
