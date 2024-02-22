@@ -15,3 +15,14 @@ export const ProductContext = createContext<TypeOfContext>(null);
 interface PropsChildren {
   children: React.ReactNode;
 }
+
+const ProductContextProvider = ({ children }: PropsChildren) => {
+  const [id, setId] = useState<string | number | null>(null);
+  return (
+    <ProductContext.Provider value={{ id, setId }}>
+      {children}
+    </ProductContext.Provider>
+  );
+};
+
+export default ProductContextProvider;
