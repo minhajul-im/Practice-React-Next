@@ -11,7 +11,30 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { useProductContext } from "../hooks/useProductContext";
 
+type QueryKey = [string, string | number];
+
+const fetchingProductDetails = async ({ queryKey }: { queryKey: QueryKey }) => {
+  const response = await axios.get(
+    `http://localhost:8000/${queryKey[0]}/${queryKey[1]}`
+  );
+  return response.data;
+};
+
 export default function ProductDetails() {
+  const { id } = useProductContext();
+  const {
+    data: product,
+    isError,
+    error,
+    isLoading,
+  } = useQuery({
+    queryKey: ["products", id],
+    queryFn: fetchingProductDetails,
+  });
+
+  if (isLoading) return <h1>FETCHING...</h1>;
+  if (isError) return <h1>ERROR: {error.message}</h1>;
+
   return (
     <div className="bg-slate-300 w-3/12 flex flex-col items-center">
       <h1 className="text-3xl font-bold font-mono py-4 text-teal-400 underline">
