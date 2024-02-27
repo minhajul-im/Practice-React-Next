@@ -19,7 +19,6 @@ export default function Products() {
   } = useQuery({
     queryKey: ["products"],
     queryFn: fetchData,
-    retry: false,
   });
 
   if (isLoading) return <h1>FETCHING DATA...</h1>;
