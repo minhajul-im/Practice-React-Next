@@ -20,12 +20,9 @@ interface PropsProduct {
 export default function Product({ product }: PropsProduct) {
   const { setId } = useProductContext();
 
-  const handleDetailsProduct = () => {
-    setId(product.id);
-  };
   return (
     <Card sx={{ maxWidth: 345, margin: "1rem 0" }}>
-      <CardActionArea onClick={handleDetailsProduct}>
+      <CardActionArea onClick={() => setId(product.id)}>
         <CardMedia
           component="img"
           height="140"

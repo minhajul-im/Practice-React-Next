@@ -1,7 +1,7 @@
 import Products from "./components/Products";
 import ProductAdd from "./components/ProductAdd";
-import ProductDetails from "./components/ProductDetails";
-import ProductContextProvider from "./context/useContext";
+import ProductDetailsShow from "./components/ProductDetailsShow";
+import ProductContextProvider from "./context/ProductContext";
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
       <div className="flex">
         <ProductAdd />
         <Products />
-        <ProductDetails />
+        <ProductDetailsShow />
       </div>
     </ProductContextProvider>
   );
