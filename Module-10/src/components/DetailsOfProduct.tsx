@@ -7,6 +7,9 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
+import Rating from "@mui/material/Rating";
+import Stack from "@mui/material/Stack";
+import MonetizationOnSharpIcon from "@mui/icons-material/MonetizationOnSharp";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
@@ -32,7 +35,7 @@ export default function DetailsOfProduct({ id }: PropsId) {
   } = useQuery({
     queryKey: ["products", id],
     queryFn: fetchingProductDetails,
-    retry: false,
+    // retry: false,
   });
 
   if (isLoading) return <h1>FETCHING...</h1>;
@@ -50,10 +53,21 @@ export default function DetailsOfProduct({ id }: PropsId) {
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary">
-            {product.description}
+            {product.description} {product.description}
           </Typography>
         </CardContent>
+
         <CardActions disableSpacing>
+          <span className="mr-4 font-semibold text-2xl">
+            <MonetizationOnSharpIcon /> {product.price}
+          </span>
+          <Stack spacing={1}>
+            <Rating
+              name="size-large"
+              defaultValue={product.rating}
+              size="large"
+            />
+          </Stack>
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
           </IconButton>
