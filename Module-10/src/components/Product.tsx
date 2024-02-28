@@ -21,16 +21,26 @@ export default function Product({ product }: PropsProduct) {
   const { setId } = useProductContext();
 
   return (
-    <Card sx={{ maxWidth: 345, margin: "1rem 0" }}>
+    <Card sx={{ width: 250, height: 270, margin: "1rem 0" }}>
       <CardActionArea onClick={() => setId(product.id)}>
         <CardMedia
+          sx={{ height: 180 }}
           component="img"
-          height="140"
           image={product.thumbnail}
           alt={product.title}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography
+            sx={{
+              fontWeight: "700",
+              color: "aqua",
+              textAlign: "center",
+              margin: "1rem 0 0",
+            }}
+            gutterBottom
+            variant="h6"
+            component="div"
+          >
             {product.title}
           </Typography>
         </CardContent>

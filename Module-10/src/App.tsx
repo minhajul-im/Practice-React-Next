@@ -1,7 +1,7 @@
 import Products from "./components/Products";
 import ProductAdd from "./components/ProductAdd";
-import ProductDetailsShow from "./components/ProductDetailsShow";
 import ProductContextProvider from "./context/ProductContext";
+import ProductDetailsShow from "./components/ProductDetailsShow";
 
 const App = () => {
   return (
