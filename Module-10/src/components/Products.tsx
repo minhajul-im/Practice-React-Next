@@ -17,6 +17,8 @@ const fetchData = async ({ queryKey }: { queryKey: QueryKey }) => {
 };
 
 export default function Products() {
+  const [page, setPage] = useState<number>(1);
+
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["products", page, 6],
     queryFn: fetchData,
@@ -24,6 +26,10 @@ export default function Products() {
 
   if (isLoading) return <h1>FETCHING DATA...</h1>;
   if (isError) return <h1>ERROR!{error.message}</h1>;
+
+  const handleChange = (_event: ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  };
 
   return (
     <div className="w-6/12 mx-auto bg-cyan-100">
@@ -37,6 +43,16 @@ export default function Products() {
             <Product product={product} />
           </div>
         ))}
+      </div>
+      <div className="flex justify-center my-4">
+        <Stack spacing={2}>
+          <Pagination
+            count={5}
+            onChange={handleChange}
+            page={page}
+            color={"secondary"}
+          />
+        </Stack>
       </div>
     </div>
   );

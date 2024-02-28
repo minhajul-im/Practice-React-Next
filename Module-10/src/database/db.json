@@ -143,6 +143,14 @@
       "price": "31",
       "rating": "4",
       "thumbnail": "https://cdn.dummyjson.com/product-images/89/thumbnail.jpg"
+    },
+    {
+      "id": "39616587-36a9-40a8-b7fa-76709067b5aa",
+      "title": "Beautiful Wedding Saree ",
+      "description": "Studio 149's exquisite bridal saree collection. Browse through our strikingly well made designer wedding sarees. Paired with dense hand embroidery blouses that ...",
+      "price": "555",
+      "rating": "4",
+      "thumbnail": "https://image-marketing.s3.ap-south-1.amazonaws.com/wp-content/uploads/2023/10/14220447/green-bridal-saree.webp"
     }
   ],
   "users": [
