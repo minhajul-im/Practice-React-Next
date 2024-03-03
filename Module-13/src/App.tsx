@@ -1,8 +1,18 @@
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+
+import Products from "./components/Products";
+
+const queyClient = new QueryClient();
+
 const App = () => {
   return (
-    <div>
-      <div>hello Bangladesh</div>
-    </div>
+    <QueryClientProvider client={queyClient}>
+      <div>
+        <Products />
+      </div>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 };
 
