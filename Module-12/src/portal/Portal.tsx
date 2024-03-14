@@ -8,7 +8,7 @@ interface PropsPortal {
 const Portal = ({ children }: PropsPortal) => {
   const portalDiv = document.getElementById("portal");
 
-  return createPortal(children, portalDiv); // give me a warning can you see this
+  return createPortal(children, portalDiv);
 };
 
 export default Portal;

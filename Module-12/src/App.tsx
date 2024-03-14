@@ -1,4 +1,4 @@
-import PortalReact from "./portal/PortalReact";
+import Animations from "./animation/Animations";
 
 export default function App() {
   return (
@@ -6,7 +6,7 @@ export default function App() {
       <h1 className="text-3xl text-center pt-14 text-red font-bold">
         Hello React Portal
       </h1>
-      <PortalReact />
+      <Animations />
     </div>
   );
 }
