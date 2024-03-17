@@ -1,9 +1,7 @@
-import AxiosApp from "./components/axios/AxiosApp";
-
 export default function App() {
   return (
     <div>
-      <AxiosApp />
+      <h1>hello </h1>
     </div>
   );
 }
