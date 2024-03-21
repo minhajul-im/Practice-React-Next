@@ -1,9 +1,13 @@
+import Button from "./animation/Button";
+import Div from "./animation/Div";
 import Text from "./animation/Text";
 
 export default function App() {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <Text />
+    <div>
+      <Div></Div>
+      <Button></Button>
+      <Text></Text>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 
-const Animations = () => {
+const Div = () => {
   return (
-    <div className="flex h-screen justify-center items-center">
+    <div>
       <motion.div
         initial={{ scale: 0.5 }}
         animate={{
@@ -28,4 +28,4 @@ const Animations = () => {
   );
 };
 
-export default Animations;
+export default Div;
