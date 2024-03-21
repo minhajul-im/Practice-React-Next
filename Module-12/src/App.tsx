@@ -1,11 +1,9 @@
-import TransitionType from "./animation/TransitionType";
-import Variants from "./animation/Variants";
+import Counter from "./animation/Counter";
 
 export default function App() {
   return (
     <div>
-      <Variants />
-      <TransitionType />
+      <Counter />
     </div>
   );
 }
