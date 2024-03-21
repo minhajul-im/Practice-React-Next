@@ -1,3 +1,9 @@
+import TransitionType from "./animation/TransitionType";
+
 export default function App() {
-  return <div>hello animation</div>;
+  return (
+    <div>
+      <TransitionType />
+    </div>
+  );
 }
