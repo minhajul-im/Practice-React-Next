@@ -1,9 +1,5 @@
-import Counter from "./animation/Counter";
+const App = () => {
+  return <div>App</div>;
+};
 
-export default function App() {
-  return (
-    <div>
-      <Counter />
-    </div>
-  );
-}
+export default App;
