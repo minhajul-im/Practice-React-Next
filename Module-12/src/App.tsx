@@ -1,11 +1,5 @@
-import TransitionType from "./animation/TransitionType";
-import Variants from "./animation/Variants";
+const App = () => {
+  return <div>App</div>;
+};
 
-export default function App() {
-  return (
-    <div>
-      <Variants />
-      <TransitionType />
-    </div>
-  );
-}
+export default App;
