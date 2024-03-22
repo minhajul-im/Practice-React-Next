@@ -13,6 +13,9 @@ const Navbar = () => {
         <li>
           <CustomLink path="/profile">Profile</CustomLink>
         </li>
+        <li>
+          <CustomLink path="/login">Login</CustomLink>
+        </li>
       </ul>
     </nav>
   );
