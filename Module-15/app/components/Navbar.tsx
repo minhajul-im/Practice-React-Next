@@ -16,6 +16,9 @@ const Navbar = () => {
         <li>
           <CustomLink path="/login">Login</CustomLink>
         </li>
+        <li>
+          <CustomLink path="/register">Register</CustomLink>
+        </li>
       </ul>
     </nav>
   );
