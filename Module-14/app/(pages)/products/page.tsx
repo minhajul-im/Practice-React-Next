@@ -1,7 +1,6 @@
-import { data } from "@/db/products";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { data } from "@/db/products";
 
 const ProductsPage = () => {
   console.log(data.products[0].thumbnail);
