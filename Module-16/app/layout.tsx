@@ -14,10 +14,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const theme = true;
   return (
     <html lang="en">
       <body
-        className={`bg-black 
+        className={`bg-[#030613]
           ${inter.className}`}>
         {children}
       </body>
