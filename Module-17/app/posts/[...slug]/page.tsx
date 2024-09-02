@@ -1,8 +1,9 @@
-import { notFound } from "next/navigation";
 import "@/styles/mdx.css";
-import { Post, posts } from "#site/content";
-import { MdxComponent } from "@/components/post/mdx-component";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { Programming as Post } from "#site/content";
+import { fetchPosts } from "@/services/fetch-post-data";
+import { MdxComponent } from "@/components/post/mdx-component";
 
 type ParamsType = {
   params: {
@@ -12,6 +13,8 @@ type ParamsType = {
 
 const getPostFromParams = async (params: ParamsType["params"]) => {
   const slug = params?.slug?.join("?");
+  const posts = await fetchPosts(null);
+
   const post = posts.find((post: Post) => post.slugAsParams === slug);
   return post;
 };
@@ -56,7 +59,10 @@ export const generateMetadata = async ({
 export const generateStaticParams = async (): Promise<
   ParamsType["params"][]
 > => {
-  return posts.map((post: Post) => ({ slug: post?.slugAsParams.split("/") }));
+  const posts = await fetchPosts(null);
+  return posts.map((post: Post) => ({
+    slug: post?.slugAsParams.split("/"),
+  }));
 };
 
 const PostPage = async ({ params }: ParamsType) => {

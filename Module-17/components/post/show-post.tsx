@@ -13,11 +13,13 @@ type Post = {
 };
 
 const ShowPost = ({ slug, body, date, title, description }: Post) => {
+  const url = slug.split("/").at(1);
+
   return (
     <article className="flex flex-col gap-2 border-border border-b py-3">
       <div>
         <h2 className="text-2xl font-bold">
-          <Link href={"/" + slug}>{title}</Link>
+          <Link href={"/posts/" + url}>{title}</Link>
         </h2>
       </div>
 
@@ -31,7 +33,7 @@ const ShowPost = ({ slug, body, date, title, description }: Post) => {
           </dd>
         </dl>
         <Link
-          href={"/" + slug}
+          href={"/posts/" + url}
           className={cn(buttonVariants({ variant: "link" }), "py-0")}>
           Read more →
         </Link>
