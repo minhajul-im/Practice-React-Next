@@ -1,13 +1,23 @@
-import { posts, Post } from "#site/content";
 import ShowPost from "@/components/post/show-post";
-import { sortPosts } from "@/lib/utils";
+import { Programming as Post } from "#site/content";
+import Categories from "@/components/common/categories";
+import { fetchPosts } from "@/services/fetch-post-data";
 
-const PostsPage = async () => {
-  const sortPost = sortPosts(posts.filter((post: Post) => post.published));
-  const displayPosts = posts;
+type Params = {
+  searchParams: {
+    type: string | null;
+  };
+};
+
+const PostsPage = async ({ searchParams }: Params) => {
+  const { type } = searchParams;
+
+  const showPosts = await fetchPosts(type);
 
   return (
     <main className="container p-4">
+      <Categories />
+
       <h1 className="text-4xl py-5 font-bold"> Posts page</h1>
       <p className="my-2 text-muted-foreground">
         Lorem ipsum dolor sit amet elit. Maiores consectetur harum mollitia sint
@@ -15,9 +25,9 @@ const PostsPage = async () => {
       </p>
       <hr className="mt-6 border-b" />
       <div>
-        {displayPosts.length > 0 ? (
+        {showPosts?.length > 0 ? (
           <section className="flex flex-col gap-6">
-            {displayPosts.map((post: Post, idx: number) => (
+            {showPosts?.map((post: Post, idx: number) => (
               <ShowPost
                 key={idx}
                 slug={post?.slug}
