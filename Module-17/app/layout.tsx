@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 import Navbar from "@/components/common/navbar";
 import { ThemeProvider } from "@/provider/theme-provider";
+import WhatsApp from "@/components/common/whatsapp";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
         <ThemeProvider>
           <Navbar />
           {children}
+          <WhatsApp />
         </ThemeProvider>
       </body>
     </html>
