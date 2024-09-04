@@ -5,7 +5,7 @@ const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 export const fetchPosts = async (type: string | null): Promise<Post[]> => {
   try {
     const query = type ? `?type=${type}` : "";
-    const res = await fetch(`${baseUrl}${query}`);
+    const res = await fetch(`${baseUrl}posts${query}`);
 
     if (!res.ok) {
       throw new Error(`Failed to fetch posts: ${res.statusText}`);
