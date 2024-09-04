@@ -40,7 +40,7 @@ export const generateMetadata = async ({
       url: post?.slug,
       images: [
         {
-          url: `/api/og?${post?.slugAsParams.toString()}`,
+          url: `og?${post?.slugAsParams.toString()}`,
           width: 1200,
           height: 600,
           alt: post?.title,
@@ -51,7 +51,7 @@ export const generateMetadata = async ({
       card: "summary_large_image",
       title: post?.title,
       description: post?.description,
-      images: [`/api/og?${post?.slugAsParams.toString()}`],
+      images: [`og?${post?.slugAsParams.toString()}`],
     },
   };
 };
