@@ -2,7 +2,7 @@ import "@/styles/mdx.css";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Programming as Post } from "#site/content";
-import { fetchPosts } from "@/services/fetch-post-data";
+import { baseUrl, fetchPosts } from "@/services/fetch-post-data";
 import { MdxComponent } from "@/components/post/mdx-component";
 
 type ParamsType = {
@@ -40,7 +40,7 @@ export const generateMetadata = async ({
       url: post?.slug,
       images: [
         {
-          url: `og?${post?.slugAsParams.toString()}`,
+          url: `${baseUrl}og?${post?.slugAsParams.toString()}`,
           width: 1200,
           height: 600,
           alt: post?.title,

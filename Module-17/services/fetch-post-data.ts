@@ -1,6 +1,6 @@
 import { Programming as Post } from "#site/content";
 
-const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+export const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export const fetchPosts = async (type: string | null): Promise<Post[]> => {
   try {
