@@ -1,4 +1,5 @@
 const HomePage = () => {
+  const peraId = document.getElementById("pera1");
   return (
     <main className="container p-4 mx-auto">
       <h1 className="text-4xl font-bold"> Hello Home page</h1>
@@ -102,16 +103,7 @@ const HomePage = () => {
         ex veritatis sed rerum, quo perspiciatis odio quis similique? Optio
         magni sunt dolore, illum tempore deleniti vel, labore odit mollitia
         eaque minima! Quibusdam vel odio expedita explicabo minus nostrum,
-        asperiores, voluptate aut repellat fugiat id similique beatae reiciendis
-        ratione cum amet sapiente quaerat consequatur iusto alias culpa iste.
-        Provident quo ex quod sunt reiciendis, modi facilis itaque sint facere
-        eveniet sapiente nulla laboriosam aliquam illo iste asperiores
-        temporibus veniam repudiandae quos et. Fugit deleniti, dolore explicabo
-        suscipit dolores officiis sit ab asperiores quod tempora ratione impedit
-        inventore eius itaque praesentium, cum eum a natus laudantium! Ipsam,
-        temporibus aspernatur neque nisi deserunt ut provident recusandae quia
-        cum omnis ullam vel, rerum, minima cumque itaque. Rem at beatae porro
-        doloremque?
+        asperiores,
       </p>
     </main>
   );
